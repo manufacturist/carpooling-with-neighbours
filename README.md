@@ -1,4 +1,6 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) | [:uk: English](./README.md) | [:romania: Română](./README.ro.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+[:uk: English](./README.md) | [:romania: Română](./README.ro.md)
 
 # Carpool with Neighbours
 
@@ -9,6 +11,7 @@ This is a beneficial solution for:
 * Offices / large companies
 * Close-knit communities
 
+<br/>
 
 ### How it works?
 
@@ -31,6 +34,7 @@ Neighbours can contact the driver to reserve a seat.
 
 To use this solution, someone in the community / neighbourhood must fulfill the role of the Admin. The Admin needs to manually add users to a spreadsheet. Only users listed in the spreadsheet can receive the Sunday email and offer rides via the form.
 
+<br/>
 
 ### Benefits of this solution
 
@@ -46,6 +50,7 @@ To use this solution, someone in the community / neighbourhood must fulfill the 
 
 :warning: 100 is the daily email quota for free accounts and 1500 for workspace ones
 
+<br/>
 
 ### Technical details
 
@@ -61,12 +66,13 @@ Once set up, go to the `main.gs` file and set your time zone (code change). Then
 
 That’s it. Your only remaining task is to manually populate the users list. For each user, you’ll need to collect the email, name, phone number, the desired language `[en, ro]` and optionally a reference (apartment / house number / office / team / company / context specific).
 
-If something breaks, good luck <3. I came up with this line while working with GAS: *"The frail digital connective tissue holding this solution all together is broken. Destroy it and rebuild it."*. It sums up my feelings about working with GAS:
+If something breaks, good luck <3. I came up with this line while working with GAS: *"The frail digital connective tissue holding this solution all together is broken. Destroy it and rebuild it"*. It sums up my feelings about working with GAS:
 1. Development cycles are long because you have to manually test everything
 2. Regression is required when making big changes :(
 3. I appreciate `clasp` because it lets me code from VSC
 4. Simple... for the most part
 
+<br/>
 
 ### Development process
 
@@ -80,6 +86,7 @@ If you make a change that benefits your community and might help others, feel fr
 
 If you want to make a quick contribution, add support for your native language if it’s not already present (`contants.js`).
 
+<br/>
 
 ### Ideas I tried and abandoned
 
@@ -92,6 +99,7 @@ If you want to make a quick contribution, add support for your native language i
    * It complicates the code (requires one sheet per form)
    * English is king
 
+<br/>
 
 ### About this solution
 

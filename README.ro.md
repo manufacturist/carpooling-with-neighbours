@@ -9,6 +9,7 @@ Este o soluție benefică pentru:
 2. Birouri / companii mari
 3. Comunități închegate
 
+<br/>
 
 ### Cum funcționează?
 
@@ -31,6 +32,7 @@ Vecinii pot apoi contacta șoferul pentru a rezerva un loc.
 
 Pentru a utiliza această soluție, cineva din comunitate / cartier trebuie să îndeplinească rolul de Admin. Adminul trebuie să adauge manual utilizatorii într-un fișier Google de tip "Sheet". Doar utilizatorii adăugați în fișierul respectiv pot primi emailul de duminică și pot oferi curse prin formular.
 
+<br/>
 
 ### Beneficiile acestei soluții
 
@@ -46,6 +48,7 @@ Pentru a utiliza această soluție, cineva din comunitate / cartier trebuie să 
 
 :warning: 100 este limita de email-uri care pot fi trimise într-o zi, pentru conturile gratuite. 1500 pentru conturile workspace
 
+<br/>
 
 ### Detalii tehnice
 
@@ -61,12 +64,13 @@ După ce ai configurat, mergi la fișierul `main.gs` și setează fusul orar loc
 
 Asta e tot. Singura ta sarcină rămasă este să populezi manual lista de utilizatori. Pentru fiecare utilizator va trebui să colectezi emailul, numele, numărul de telefon, limba dorită `[en, ro]` și opțional o referință (apartament / numărul casei / biroul / echipa / firma / ceva specific contextual).
 
-Dacă ceva se strică, mult noroc <3 Mi-a venit fraza următoare în timp ce lucram cu GAS: *"Țesutul digital fragil care ține această soluție laolaltă este rupt. Distruge-l și reconstruiește-l."*. Aceasta sumarizează oarecum sentimentele mele față de GAS:
+Dacă ceva se strică, mult noroc <3 Mi-a venit fraza următoare în timp ce lucram cu GAS: *"Țesutul digital fragil care ține această soluție laolaltă este rupt. Distruge-l și reconstruiește-l"*. Aceasta sumarizează oarecum sentimentele mele față de GAS:
 1. Ciclurile de dezvoltare sunt lungi pentru că trebuie să testezi manual totul
 2. Regresia este necesară atunci când faci schimbări mari :(
 3. Apreciez că există `clasp`, pentru că îmi permite să codez din VSC
 4. Simplu... în mare parte
 
+<br/>
 
 ### Procesul de dezvoltare
 
@@ -80,6 +84,7 @@ Dacă faci o schimbare care aduce un beneficiu comunității tale și consideri 
 
 Dacă vrei să faci o contribuție rapidă, poți adăuga suport pentru limba ta maternă dacă nu este deja prezentă (`contants.js`).
 
+<br/>
 
 ### Idei pe care le-am încercat și abandonat
 
@@ -92,6 +97,7 @@ Dacă vrei să faci o contribuție rapidă, poți adăuga suport pentru limba ta
    * Complică codul
    * Engleza este baza
 
+<br/>
 
 ### Despre această soluție
 
