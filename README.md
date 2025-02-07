@@ -13,7 +13,7 @@ This is a beneficial solution for:
 
 <br/>
 
-### How it works?
+## How it works
 
 A neighbour can offer a ride by filling out a form. Every Sunday, an email is sent around 19:00 with a list of available rides for the upcoming week to all those interested:
 
@@ -36,7 +36,7 @@ To use this solution, someone in the community / neighbourhood must fulfill the 
 
 <br/>
 
-### Benefits of this solution
+## Benefits of this solution
 
 1. It has zero costs! No instalations are required, and users don’t need to register on any platform unless they offer a ride
 
@@ -52,7 +52,7 @@ To use this solution, someone in the community / neighbourhood must fulfill the 
 
 <br/>
 
-### Technical details
+## Technical details
 
 To install, you’ll need a Google account. Download the code and choose one of the following methods:
 * If you're technically proficient, I'd recommend using [clasp](https://github.com/google/clasp)
@@ -74,7 +74,7 @@ If something breaks, good luck <3. I came up with this line: *"The frail digital
 
 <br/>
 
-### Development process
+## Development process
 
 Clone this repo and make it your own. There’s no one-size-fits-all solution. Different communities, different needs.
 
@@ -88,7 +88,7 @@ If you want to make a quick contribution, add support for your native language i
 
 <br/>
 
-### Ideas I tried and abandoned
+## Ideas I tried and abandoned
 
 1. **A form for reserving a ride**
    * It complicates the UX and the code
@@ -101,7 +101,7 @@ If you want to make a quick contribution, add support for your native language i
 
 <br/>
 
-### About this solution
+## About this solution
 
 *"How can I create a ride-sharing solution for any community with minimal effort and zero costs?"*, that was the challenge I set for myself after a neighbour gave me a ride to work:
 * Spent half a workday reading about various solutions to implement this as effortless as possible

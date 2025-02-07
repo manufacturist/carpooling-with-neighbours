@@ -13,7 +13,7 @@ Este o soluție benefică pentru:
 
 <br/>
 
-### Cum funcționează?
+## Cum funcționează?
 
 Un vecin poate oferi o cursă completând un formular. În fiecare duminică, un email este trimis în jurul orei 19:00 cu o listă de curse disponibile pentru săptămâna următoare tuturor celor interesați:
 
@@ -36,7 +36,7 @@ Pentru a utiliza această soluție, cineva din comunitate / cartier trebuie să 
 
 <br/>
 
-### Beneficiile acestei soluții
+## Beneficiile acestei soluții
 
 1. Nu are costuri! Nu necesită instalarea, iar utilizatorii nu trebuie să se înregistreze pe nicio platformă decât dacă oferă curse
 
@@ -52,7 +52,7 @@ Pentru a utiliza această soluție, cineva din comunitate / cartier trebuie să 
 
 <br/>
 
-### Detalii tehnice
+## Detalii tehnice
 
 Pentru a instala, vei avea nevoie de un cont Google. Descarcă codul și alege una dintre următoarele metode:
 * Dacă ești o persoană tehnică, îți recomand să folosești [clasp](https://github.com/google/clasp)
@@ -74,7 +74,7 @@ Dacă ceva se strică, mult noroc <3 Mi-a venit în minte fraza următoare: *"Ț
 
 <br/>
 
-### Procesul de dezvoltare
+## Procesul de dezvoltare
 
 Clonează acest repo și însușește-ți-l. Nu există o soluție universală. Comunități diferite, nevoi diferite.
 
@@ -88,7 +88,7 @@ Dacă vrei să faci o contribuție rapidă, poți adăuga suport pentru limba ta
 
 <br/>
 
-### Idei pe care le-am încercat și abandonat
+## Idei pe care le-am încercat și abandonat
 
 1. **Un formular pentru rezervarea unei curse**
    * Complică UX-ul și codul
@@ -101,7 +101,7 @@ Dacă vrei să faci o contribuție rapidă, poți adăuga suport pentru limba ta
 
 <br/>
 
-### Despre această soluție
+## Despre această soluție
 
 *"Cum pot crea o soluție de carpooling pentru orice comunitate cu un efort minim și costuri zero?"*, aceasta a fost provocarea pe care mi-am setat-o după ce un vecin s-a oferit să mă ducă la birou:
 * Am citit juma' de zi de lucru despre diverse soluții pentru ajunge la o implementare concretă cu un efort pe cât se poate de redus
