@@ -38,11 +38,11 @@ To use this solution, someone in the community / neighbourhood must fulfill the 
 
 ### Benefits of this solution
 
-1. It has zero costs! No apps to install, and users don’t need to register on any platform
+1. It has zero costs! No instalations are required, and users don’t need to register on any platform unless they offer a ride
 
 2. It works for up to 100 users (Sunday email)
 
-3. Drivers are required to have a Google account, so partial identity verification is done by Google. A verified email is required when filling out the form
+3. Drivers are required to have a **verified** Google account. A verified email is required when filling out the form
 
 4. There’s a social aspect to it. You need to contact the driving neighbour directly to reserve a spot
 
@@ -66,7 +66,7 @@ Once set up, go to the `main.gs` file and set your time zone (code change). Then
 
 That’s it. Your only remaining task is to manually populate the users list. For each user, you’ll need to collect the email, name, phone number, the desired language `[en, ro]` and optionally a reference (apartment / house number / office / team / company / context specific).
 
-If something breaks, good luck <3. I came up with this line while working with GAS: *"The frail digital connective tissue holding this solution all together is broken. Destroy it and rebuild it"*. It sums up my feelings about working with GAS:
+If something breaks, good luck <3. I came up with this line: *"The frail digital connective tissue holding this solution all together is broken. Destroy it and rebuild it"*. It sums up my feelings about working with GAS:
 1. Development cycles are long because you have to manually test everything
 2. Regression is required when making big changes :(
 3. I appreciate `clasp` because it lets me code from VSC

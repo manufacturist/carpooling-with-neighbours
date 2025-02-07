@@ -1,4 +1,6 @@
-[![Licență: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) | [:uk: English](./README.md) | [:romania: Română](./README.ro.md)
+[![Licență: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
+
+[:uk: English](./README.md) | [:romania: Română](./README.ro.md)
 
 # Drumuri cu vecinii
 
@@ -18,9 +20,9 @@ Un vecin poate oferi o cursă completând un formular. În fiecare duminică, un
 ```
 Iată cursele disponibile:
 
-🚗 Hotelul Vega (Gogu a lui Pupăză) | miercuri, 30.02, 13:37
+🚗 Hotelul Vega (la Gogu a lui Pupăză) | miercuri, 30.02, 13:37
 Șofer: Nea Mărin (Juvete, 0712345678)
-Plecare: Băilești, nr. 42 | Locuri: 3
+Plecare: Băilești | Locuri: 3
 
 Dacă o cursă îți este utilă, discută cu șoferul pentru a rezerva un loc.
 
@@ -36,11 +38,11 @@ Pentru a utiliza această soluție, cineva din comunitate / cartier trebuie să 
 
 ### Beneficiile acestei soluții
 
-1. Nu are costuri! Nu necesită instalarea de aplicații, iar utilizatorii nu trebuie să se înregistreze pe nicio platformă
+1. Nu are costuri! Nu necesită instalarea, iar utilizatorii nu trebuie să se înregistreze pe nicio platformă decât dacă oferă curse
 
 2. Funcționează cu maxim 100 de utilizatori (emailul de duminică)
 
-3. Șoferii trebuie să aibă un cont Google, astfel că verificarea parțială a identității este făcută prin Google. Un email verificat este necesar la completarea formularului
+3. Șoferii trebuie să aibă un cont de Google **verificat**. Un email verificat este necesar la completarea formularului
 
 4. Există un aspect social. Trebuie să contactezi direct vecinul șofer pentru a rezerva un loc
 
@@ -64,7 +66,7 @@ După ce ai configurat, mergi la fișierul `main.gs` și setează fusul orar loc
 
 Asta e tot. Singura ta sarcină rămasă este să populezi manual lista de utilizatori. Pentru fiecare utilizator va trebui să colectezi emailul, numele, numărul de telefon, limba dorită `[en, ro]` și opțional o referință (apartament / numărul casei / biroul / echipa / firma / ceva specific contextual).
 
-Dacă ceva se strică, mult noroc <3 Mi-a venit fraza următoare în timp ce lucram cu GAS: *"Țesutul digital fragil care ține această soluție laolaltă este rupt. Distruge-l și reconstruiește-l"*. Aceasta sumarizează oarecum sentimentele mele față de GAS:
+Dacă ceva se strică, mult noroc <3 Mi-a venit în minte fraza următoare: *"Țesutul digital fragil care ține această soluție laolaltă este rupt. Distruge-l și reconstruiește-l"*. Aceasta sumarizează oarecum sentimentele mele față de GAS:
 1. Ciclurile de dezvoltare sunt lungi pentru că trebuie să testezi manual totul
 2. Regresia este necesară atunci când faci schimbări mari :(
 3. Apreciez că există `clasp`, pentru că îmi permite să codez din VSC
