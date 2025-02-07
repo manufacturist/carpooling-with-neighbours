@@ -2,7 +2,7 @@
 
 [:uk: English](./README.md) | [:romania: Română](./README.ro.md)
 
-# Carpool with Neighbours
+# Carpooling with Neighbours
 
 A zero-cost, minimal interaction solution for carpooling with your neighbours, using Google Apps Script (GAS).
 
@@ -27,7 +27,7 @@ Meet: Mater's Garage (Radiator Springs) | Seats: 3
 If any ride is helpful, talk with the driver to reserve a spot.
 
 Best regards,
-Carpool with Neighbors
+Carpooling with Neighbors
 ```
 
 Neighbours can contact the driver to reserve a seat.
