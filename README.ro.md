@@ -7,9 +7,21 @@
 O soluție cu zero costuri și interacțiune minimă pentru a face drumuri cu vecinii (carpooling), folosind Google Apps Script (GAS).
 
 Este o soluție benefică pentru:
-1. Clădiri rezidențiale
-2. Birouri / companii mari
-3. Comunități închegate
+* Clădiri rezidențiale
+* Birouri / companii mari
+* Comunități închegate
+
+<br/>
+
+## Cuprins
+
+* [Cum funcționează?](#cum-funcționează)
+* [Beneficiile acestei soluții](#beneficiile-acestei-soluții)
+* [Detalii tehnice](#detalii-tehnice)
+* [Procesul de dezvoltare](#procesul-de-dezvoltare)
+* [Idei abandonate](#idei-abandonate)
+* [Întrebări frecvente](#întrebări-frecvente)
+* [Inspirație](#inspirație)
 
 <br/>
 
@@ -24,7 +36,7 @@ Iată cursele disponibile:
 Șofer: Nea Mărin (Juvete, 0712345678)
 Plecare: Băilești | Locuri: 3
 
-Dacă o cursă îți este utilă, discută cu șoferul pentru a rezerva un loc.
+Dacă o cursă îți este utilă, discută cu șoferul pentru a rezerva un loc. Dacă vrei să te dezabonezi de la acest serviciu, apasă aici.
 
 Toate cele bune,
 Drumuri cu vecinii
@@ -34,11 +46,13 @@ Vecinii pot apoi contacta șoferul pentru a rezerva un loc.
 
 Pentru a utiliza această soluție, cineva din comunitate / cartier trebuie să îndeplinească rolul de Admin. Adminul trebuie să adauge manual utilizatorii într-un fișier Google de tip "Sheet". Doar utilizatorii adăugați în fișierul respectiv pot primi emailul de duminică și pot oferi curse prin formular.
 
+Pentru șoferi, colectează-le adresa de email, numele și numărul de telefon, iar pentru restul doar adresa de email.
+
 <br/>
 
 ## Beneficiile acestei soluții
 
-1. Nu are costuri! Nu necesită instalarea, iar utilizatorii nu trebuie să se înregistreze pe nicio platformă decât dacă oferă curse
+1. Costuri zero! Nu necesită instalări de aplicații sau înregistrări de conturi (cu excepția șoferilor, dacă nu au cont de Google)
 
 2. Funcționează cu maxim 100 de utilizatori (emailul de duminică)
 
@@ -56,9 +70,9 @@ Pentru a utiliza această soluție, cineva din comunitate / cartier trebuie să 
 
 Pentru a instala, vei avea nevoie de un cont Google. Descarcă codul și alege una dintre următoarele metode:
 * Dacă ești o persoană tehnică, îți recomand să folosești [clasp](https://github.com/google/clasp)
-* Dacă nu, mergi la [Google Apps Script](https://script.google.com/home), creează un proiect nou și adaugă fișierele din folderul `src`
+* Dacă nu, mergi la [Google Apps Script](https://script.google.com/home), creează un proiect nou și adaugă folderul `src` la proiectul nou creat, după ce descarci codul local
 
-După ce ai configurat, mergi la fișierul `main.gs` și setează fusul orar local (modificare de cod). Apoi rulează funcția `main()`, care va:
+Pe pagina proiectului, mergi la editor și deschide fișierul `main.gs`. Setează fusul orar local (modificare de cod), iar apoi rulează funcția `main()`. Aceasta va face următoarele va:
 1. Crea fișierul `Users` (Sheet)
 2. Crea formularul `Offer Ride` (Form)
 3. Crea fișierul `Ride Offers` (Sheet), unde vor fi salvate răspunsurile formularului
@@ -66,11 +80,7 @@ După ce ai configurat, mergi la fișierul `main.gs` și setează fusul orar loc
 
 Asta e tot. Singura ta sarcină rămasă este să populezi manual lista de utilizatori. Pentru fiecare utilizator va trebui să colectezi emailul, numele, numărul de telefon, limba dorită `[en, ro]` și opțional o referință (apartament / numărul casei / biroul / echipa / firma / ceva specific contextual).
 
-Dacă ceva se strică, mult noroc <3 Mi-a venit în minte fraza următoare: *"Țesutul digital fragil care ține această soluție laolaltă este rupt. Distruge-l și reconstruiește-l"*. Aceasta sumarizează oarecum sentimentele mele față de GAS:
-1. Ciclurile de dezvoltare sunt lungi pentru că trebuie să testezi manual totul
-2. Regresia este necesară atunci când faci schimbări mari :(
-3. Apreciez că există `clasp`, pentru că îmi permite să codez din VSC
-4. Simplu... în mare parte
+Dacă ceva se strică, mult noroc <3 *"Țesutul digital fragil care ține această soluție laolaltă este rupt. Distruge-l și reconstruiește-l."* 
 
 <br/>
 
@@ -88,7 +98,7 @@ Dacă vrei să faci o contribuție rapidă, poți adăuga suport pentru limba ta
 
 <br/>
 
-## Idei pe care le-am încercat și abandonat
+## Idei abandonate
 
 1. **Un formular pentru rezervarea unei curse**
    * Complică UX-ul și codul
@@ -101,11 +111,17 @@ Dacă vrei să faci o contribuție rapidă, poți adăuga suport pentru limba ta
 
 <br/>
 
-## Despre această soluție
+## Întrebări frecvente
+
+* **De ce nu adaugi un form astfel încât utilizatorii să dea subscribe la emailul de curse disponibile?**
+   Zero încredere în utilizatori. Întotdeauna. Evaluează-i unul câte unul.
+
+<br/>
+
+## Inspirație
 
 *"Cum pot crea o soluție de carpooling pentru orice comunitate cu un efort minim și costuri zero?"*, aceasta a fost provocarea pe care mi-am setat-o după ce un vecin s-a oferit să mă ducă la birou:
 * Am citit juma' de zi de lucru despre diverse soluții pentru ajunge la o implementare concretă cu un efort pe cât se poate de redus
 * Am petrecut aprox 1.5 zile de lucru pe această soluție (dezvoltare, clean-up, simplificare, testare)
-* Folosind ChatGPT am accelerat dezvoltarea, finalizând primul PoC în 3 ore
 
 Sper ca soluția să vă inspire să obțineți impact maxim cu efort minim.
