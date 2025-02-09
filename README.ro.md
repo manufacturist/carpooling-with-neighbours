@@ -120,8 +120,4 @@ Dacă vrei să faci o contribuție rapidă, poți adăuga suport pentru limba ta
 
 ## Inspirație
 
-*"Cum pot crea o soluție de carpooling pentru orice comunitate cu un efort minim și costuri zero?"*, aceasta a fost provocarea pe care mi-am setat-o după ce un vecin s-a oferit să mă ducă la birou:
-* Am citit juma' de zi de lucru despre diverse soluții pentru ajunge la o implementare concretă cu un efort pe cât se poate de redus
-* Am petrecut aprox 1.5 zile de lucru pe această soluție (dezvoltare, clean-up, simplificare, testare)
-
-Sper ca soluția să vă inspire să obțineți impact maxim cu efort minim.
+*"Cum pot crea o soluție de carpooling pentru orice comunitate cu un efort minim și costuri zero?"*, aceasta a fost provocarea pe care mi-am setat-o după ce un vecin s-a oferit să mă ducă la birou (mulțumesc Roli). Sper ca soluția să vă inspire să obțineți impact maxim cu efort minim.

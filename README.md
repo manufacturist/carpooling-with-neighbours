@@ -120,4 +120,4 @@ If you want to make a quick contribution, add support for your native language i
 
 ## Inspiration
 
-*"How can I create a ride-sharing solution for any community with minimal effort and zero costs?"*, was the challenge I set for myself after a neighbour gave me a ride to work. I hope this solution inspires you to achieve maximum impact with minimal effort.
+*"How can I create a ride-sharing solution for any community with minimal effort and zero costs?"*, was the challenge I set for myself after a neighbour gave me a ride to work (thanks Roli). I hope this solution inspires you to achieve maximum impact with minimal effort.
