@@ -1,9 +1,12 @@
-const TIMEZONE_PROPERTY = "TIMEZONE"
-const RIDE_OFFERS_TTL_PROPERTY = "RIDE_OFFERS_TTL"
+const PROPERTY = {
+  TIMEZONE: "TIMEZONE",
+  RIDE_OFFERS_TTL: "RIDE_OFFERS_TTL",
+  UNSUBSCRIBE_URL: "UNSUBSCRIBE_URL"
+}
 
 const SPREADSHEETS = {
   USERS: "[carpool][db][users]",
-  USERS_HEADER: ["Email Address", "Name", "Phone Number", "Locale", "Identifying Reference"],
+  USERS_HEADER: ["Email Address", "Name", "Phone Number", "Locale", "Identifying Reference", "External Id [UUID]"],
   RIDE_OFFERS: "[carpool][db][rideOffers]"
 }
 
@@ -18,8 +21,6 @@ const I18N = {
 
     EMAIL_NAME: "Carpooling with Neighbors",
     EMAIL_SUBJECT: "Available Rides for the Upcoming Week",
-    EMAIL_BODY_START: "Here are the available rides:",
-    EMAIL_BODY_END: "If any ride is helpful, talk with the driver to reserve a spot.\n\nBest regards,\nCarpooling with Neighbors",
     EMAIL_BODY_RIDE_TEMPLATE_FN: (ride, driver) => {
       const formattedDate = new Intl.DateTimeFormat('en', {
         weekday: 'long',
@@ -49,8 +50,6 @@ const I18N = {
 
     EMAIL_NAME: "Drumuri cu vecinii",
     EMAIL_SUBJECT: "Curse disponibile pentru săptămâna viitoare",
-    EMAIL_BODY_START: "Iată cursele disponibile:",
-    EMAIL_BODY_END: "Dacă o cursă îți este utilă, discută cu șoferul pentru a rezerva un loc.\n\nToate cele bune,\nDrumuri cu vecinii",
     EMAIL_BODY_RIDE_TEMPLATE_FN: (ride, driver) => {
       const formattedDate = new Intl.DateTimeFormat('ro', {
         weekday: 'long',

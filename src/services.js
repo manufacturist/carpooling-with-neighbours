@@ -14,6 +14,15 @@ class UserService {
       [email, new User(email, ...data)]
     ))
   }
+
+  deleteUserByExternalId(externalUuid) {
+    const usersSheet = SpreadsheetApp.openById(getFileId(SPREADSHEETS.USERS)).getActiveSheet()
+    const usersData = usersSheet.getRange(2, 1, usersSheet.getLastRow() - 1, usersSheet.getLastColumn()).getValues()
+    const users = usersData.map(([...data]) => new User(...data))
+
+    const foundIndex = users.findIndex((user) => user.externalUuid == externalUuid)
+    if (foundIndex != -1) usersSheet.deleteRow(foundIndex + 2) // 1 for header + 1 for index offset to zero
+  }
 }
 
 class RideOfferService {
@@ -27,14 +36,14 @@ class RideOfferService {
     const rideOffersSheet = SpreadsheetApp.openById(getFileId(SPREADSHEETS.RIDE_OFFERS)).getActiveSheet()
     const rideOffersRows = rideOffersSheet.getRange(2, 1, rideOffersSheet.getLastRow() - 1, rideOffersSheet.getLastColumn()).getValues()
 
-    return [rideOffersSheet, rideOffersRows.map((rideOfferRow) => new RideOffer(
+    return rideOffersRows.map((rideOfferRow) => new RideOffer(
       rideOfferRow[0],
       rideOfferRow[1],
       rideOfferRow[2],
       rideOfferRow[3],
       rideOfferRow[4],
       rideOfferRow[5]
-    ))]
+    ))
   }
 
   /**
@@ -46,7 +55,7 @@ class RideOfferService {
    * @returns {Array<RideOffer>} An array of ride offers
    */
   fetchValidatedNextWeekRideOffers(usersByEmails) {
-    const [_, validRideOffers] = this.fetchAllUpcomingRideOffers().filter(offer => usersByEmails.has(offer.email))
+    const validRideOffers = this.fetchAllUpcomingRideOffers().filter(offer => usersByEmails.has(offer.email))
 
     const now = new Date()
     const currentDay = now.getDay()
@@ -68,10 +77,11 @@ class RideOfferService {
   }
 
   deleteOldRideOffers() {
-    const [rideOffersSheet, rideOffers] = this.fetchAllUpcomingRideOffers()
+    const rideOffersSheet = SpreadsheetApp.openById(getFileId(SPREADSHEETS.RIDE_OFFERS)).getActiveSheet()
+    const rideOffers = this.fetchAllUpcomingRideOffers()
     if (rideOffers.length <= 50) return
 
-    const rideOffersTtl = parseInt(PropertiesService.getScriptProperties().getProperty(RIDE_OFFERS_TTL_PROPERTY))
+    const rideOffersTtl = parseInt(PropertiesService.getScriptProperties().getProperty(PROPERTY.RIDE_OFFERS_TTL))
     const currentTimestamp = new Date().getTime()
     const ttlTimestamp = currentTimestamp - rideOffersTtl
 

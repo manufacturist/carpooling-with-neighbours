@@ -5,27 +5,34 @@ class SundayRideOffersSummary {
    * using the appropriate locale configuration for each user.
    */
   sendSummary() {
+    const unsubscribeUrl = PropertiesService.getScriptProperties().getProperty(PROPERTY.UNSUBSCRIBE_URL)
+
     Logger.log(`Current email quota: ${MailApp.getRemainingDailyQuota()}`)
 
     const usersByEmails = Services.userService.fetchUsersByEmailsMap()
     const nextWeekRides = Services.rideOfferService.fetchValidatedNextWeekRideOffers(usersByEmails)
 
-    if (nextWeekRides.length > 0) Logger.log(`There are ${nextWeekRides.length} rides available`)
-    else return Logger.log('No available rides to send, therefore no emails sent')
+    if (nextWeekRides.length > 0) { Logger.log(`There are ${nextWeekRides.length} rides available`) } else {
+      return Logger.log('No available rides to send, therefore no emails sent')
+    }
 
-    Object.keys(I18N).forEach((locale) => {
-      const userEmailsForCurrentLocale = [...usersByEmails.values()]
-        .filter((user) => user.locale == locale)
-        .map((user) => user.email)
+    const users = ([...usersByEmails.values()])
 
-      if (userEmailsForCurrentLocale.length != 0) {
-        MailApp.sendEmail({
-          name: I18N[locale].EMAIL_NAME,
-          subject: I18N[locale].EMAIL_SUBJECT,
-          body: SundayRideOffersSummary.generateSummary(usersByEmails, nextWeekRides, locale),
-          bcc: userEmailsForCurrentLocale.join(',')
-        })
-      }
+    const templates = {
+      en: HtmlService.createTemplateFromFile('template/rideOffers.en'),
+      ro: HtmlService.createTemplateFromFile('template/rideOffers.ro')
+    }
+
+    users.forEach((user) => {
+      const userUnsubscribeUrl = `${unsubscribeUrl}?unsubscribe=${user.externalUuid}`
+      const htmlMessage = SundayRideOffersSummary.generateHtmlSummary(usersByEmails, nextWeekRides, userUnsubscribeUrl, templates[user.locale], user.locale)
+
+      MailApp.sendEmail({
+        name: I18N[user.locale].EMAIL_NAME,
+        subject: I18N[user.locale].EMAIL_SUBJECT,
+        to: user.email,
+        htmlBody: htmlMessage
+      })
     })
 
     Logger.log(`Remaining email quota: ${MailApp.getRemainingDailyQuota()}`)
@@ -35,7 +42,7 @@ class SundayRideOffersSummary {
   }
 
   activateTrigger() {
-    const timeZone = PropertiesService.getScriptProperties().getProperty(TIMEZONE_PROPERTY)
+    const timeZone = PropertiesService.getScriptProperties().getProperty(PROPERTY.TIMEZONE)
 
     ScriptApp.newTrigger('Triggers.sundayRideOffersSummary.sendSummary')
       .timeBased()
@@ -45,18 +52,18 @@ class SundayRideOffersSummary {
       .create()
   }
 
-  static generateSummary(usersByEmails, nextWeekRides, locale) {
-    let emailBody = `${I18N[locale].EMAIL_BODY_START}\n\n`
-
-    nextWeekRides.forEach(ride => {
+  static generateHtmlSummary(usersByEmails, nextWeekRides, unsubscribeUrl, template, userLocale) {
+    const rides = nextWeekRides.map(ride => {
       const rideDriver = usersByEmails.get(ride.email)
-      const rideDescription = I18N[locale].EMAIL_BODY_RIDE_TEMPLATE_FN(ride, rideDriver)
+      const rideDescription = I18N[userLocale].EMAIL_BODY_RIDE_TEMPLATE_FN(ride, rideDriver)
 
-      emailBody += `${rideDescription}\n\n`
+      return rideDescription
     })
 
-    emailBody += I18N[locale].EMAIL_BODY_END
-    return emailBody
+    template.unsubscribeUrl = unsubscribeUrl
+    template.rides = rides.join("\n\n")
+
+    return template.evaluate().getContent()
   }
 }
 

@@ -1,8 +1,12 @@
 function main() {
   // Pick a valid IANA Time Zone https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   const scriptProperties = PropertiesService.getScriptProperties()
-  scriptProperties.setProperty(TIMEZONE_PROPERTY, "Europe/Bucharest")
-  scriptProperties.setProperty(RIDE_OFFERS_TTL_PROPERTY, 60 * 24 * 60 * 60 * 1000)
+  scriptProperties.setProperty(PROPERTY.TIMEZONE, "Europe/Bucharest")
+  scriptProperties.setProperty(PROPERTY.RIDE_OFFERS_TTL, 60 * 24 * 60 * 60 * 1000)
+  scriptProperties.setProperty(
+    PROPERTY.UNSUBSCRIBE_URL,
+    "TODO: Make Deployment and add web app URL here"
+  )
 
   createUsersSpreadsheet()
   createOfferRideForm()
