@@ -113,7 +113,7 @@ If you want to make a quick contribution, add support for your native language i
 
 ## FAQ
 
-* **Why not add a form for users to allow them to easily subscribe to the ride offers email?**
+* **Why not add a form for users to allow them to easily subscribe to the ride offers email?** <br/>
    Zero trust in users. Always. Vet them one by one.
 
 <br/>

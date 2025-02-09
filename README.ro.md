@@ -113,7 +113,7 @@ Dacă vrei să faci o contribuție rapidă, poți adăuga suport pentru limba ta
 
 ## Întrebări frecvente
 
-* **De ce nu adaugi un form astfel încât utilizatorii să dea subscribe la emailul de curse disponibile?**
+* **De ce nu adaugi un form astfel încât utilizatorii să dea subscribe la emailul de curse disponibile?** <br/>
    Zero încredere în utilizatori. Întotdeauna. Evaluează-i unul câte unul.
 
 <br/>
