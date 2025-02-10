@@ -5,7 +5,9 @@ class SundayRideOffersSummary {
    * using the appropriate locale configuration for each user.
    */
   sendSummary() {
-    const unsubscribeUrl = PropertiesService.getScriptProperties().getProperty(PROPERTY.UNSUBSCRIBE_URL)
+    const scriptProperties = PropertiesService.getScriptProperties()
+    const offerRideFormUrl = scriptProperties.getProperty(PROPERTY.OFFER_RIDE_FORM_URL)
+    const unsubscribeUrl = scriptProperties.getProperty(PROPERTY.UNSUBSCRIBE_URL)
 
     Logger.log(`Current email quota: ${MailApp.getRemainingDailyQuota()}`)
 
@@ -22,6 +24,9 @@ class SundayRideOffersSummary {
       en: HtmlService.createTemplateFromFile('template/rideOffers.en'),
       ro: HtmlService.createTemplateFromFile('template/rideOffers.ro')
     }
+
+    templates.en.offerRideFormUrl = offerRideFormUrl
+    templates.ro.offerRideFormUrl = offerRideFormUrl
 
     users.forEach((user) => {
       const userUnsubscribeUrl = `${unsubscribeUrl}?unsubscribe=${user.id}`
