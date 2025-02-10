@@ -33,7 +33,7 @@ const I18N = {
       const meetingPoint = ride.meetingPoint ? `Meet: ${ride.meetingPoint} | ` : ""
       const driverReference = driver.reference ? `${driver.reference}, ` : ""
 
-      const line1 = `🚗 ${ride.destination} | ${formattedDate}`
+      const line1 = `🚘 ${ride.destination} | ${formattedDate}`
       const line2 = `Driver: ${driver.name} (${driverReference}${driver.phoneNumber})`
       const line3 = `${meetingPoint}Seats: ${ride.seats}`
 
@@ -62,7 +62,7 @@ const I18N = {
       const meetingPoint = ride.meetingPoint ? `Plecare: ${ride.meetingPoint} | ` : ""
       const driverReference = driver.reference ? `${driver.reference}, ` : ""
 
-      const line1 = `🚗 ${ride.destination} | ${formattedDate}`
+      const line1 = `🚘 ${ride.destination} | ${formattedDate}`
       const line2 = `Șofer: ${driver.name} (${driverReference}${driver.phoneNumber})`
       const line3 = `${meetingPoint}Locuri: ${ride.seats}`
 
