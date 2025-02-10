@@ -12,13 +12,13 @@ class RideOffer {
 }
 
 class User {
-  constructor(email, name, phoneNumber, locale, reference, externalUuid) {
+  constructor(id, email, locale, name, phoneNumber, reference) {
+    this.id = id
     this.email = email
+    this.locale = locale
     this.name = name
     this.phoneNumber = phoneNumber
-    this.locale = locale
     this.reference = reference
-    this.externalUuid = externalUuid
 
     Object.freeze(this)
   }

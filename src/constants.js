@@ -6,14 +6,14 @@ const PROPERTY = {
 
 const SPREADSHEETS = {
   USERS: "[carpool][db][users]",
-  USERS_HEADER: ["Email Address", "Name", "Phone Number", "Locale", "Identifying Reference", "External Id [UUID]"],
+  USERS_HEADER: ["Id [UUID]", "Email Address", "Locale", "Name", "Phone Number", "Identifying Reference"],
   RIDE_OFFERS: "[carpool][db][rideOffers]"
 }
 
 const I18N = {
   en: {
     FORM_TITLE: "[Carpooling with Neighbors] Offer a Ride",
-    FORM_DESCRIPTION: null,
+    FORM_DESCRIPTION: "Before offering a ride, ensure that the Admin has your email, name, and phone number.",
     FORM_DESTINATION: "What is your destination?",
     FORM_DEPARTURE_TIME: "When do you plan to depart?",
     FORM_MEETING_POINT: "Where would you like your neighbors to meet you?",
@@ -42,7 +42,7 @@ const I18N = {
   },
   ro: {
     FORM_TITLE: "[Drumuri cu vecinii] Oferă o cursă",
-    FORM_DESCRIPTION: null,
+    FORM_DESCRIPTION: "Înainte de a oferi o cursă, asigură-te că Adminul are emailul, numele și numărul tău de telefon.",
     FORM_DESTINATION: "Care este destinația ta?",
     FORM_DEPARTURE_TIME: "Când plănuiești să pleci?",
     FORM_MEETING_POINT: "Unde ar trebui să te întâlnească vecinii?",

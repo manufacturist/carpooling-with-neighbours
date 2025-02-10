@@ -120,4 +120,4 @@ Dacă vrei să faci o contribuție rapidă, poți adăuga suport pentru limba ta
 
 ## Inspirație
 
-*"Cum pot crea o soluție de carpooling pentru orice comunitate cu un efort minim și costuri zero?"*, aceasta a fost provocarea pe care mi-am setat-o după ce un vecin s-a oferit să mă ducă la birou (mulțumesc Roli). Sper ca soluția să vă inspire să obțineți impact maxim cu efort minim.
+Provocarea a fost *"Cum pot crea o soluție de carpooling utilă pentru orice comunitate cu un efort minim și costuri zero?"*. Mi-am setat-o după ce un vecin m-a invitat la un drum cu mașina lui (mulțumesc Roli). Sper ca această soluție să te inspire să cauți modalități de a avea un impact mare cu un efort minim.

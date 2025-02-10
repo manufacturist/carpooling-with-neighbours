@@ -24,7 +24,7 @@ class SundayRideOffersSummary {
     }
 
     users.forEach((user) => {
-      const userUnsubscribeUrl = `${unsubscribeUrl}?unsubscribe=${user.externalUuid}`
+      const userUnsubscribeUrl = `${unsubscribeUrl}?unsubscribe=${user.id}`
       const htmlMessage = SundayRideOffersSummary.generateHtmlSummary(usersByEmails, nextWeekRides, userUnsubscribeUrl, templates[user.locale], user.locale)
 
       MailApp.sendEmail({

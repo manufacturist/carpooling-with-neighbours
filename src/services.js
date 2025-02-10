@@ -10,8 +10,8 @@ class UserService {
     const usersSheet = SpreadsheetApp.openById(getFileId(SPREADSHEETS.USERS)).getActiveSheet()
     const usersData = usersSheet.getRange(2, 1, usersSheet.getLastRow() - 1, usersSheet.getLastColumn()).getValues()
 
-    return new Map(usersData.map(([email, ...data]) =>
-      [email, new User(email, ...data)]
+    return new Map(usersData.map(([id, email, ...data]) =>
+      [email, new User(id, email, ...data)]
     ))
   }
 
@@ -20,7 +20,7 @@ class UserService {
     const usersData = usersSheet.getRange(2, 1, usersSheet.getLastRow() - 1, usersSheet.getLastColumn()).getValues()
     const users = usersData.map(([...data]) => new User(...data))
 
-    const foundIndex = users.findIndex((user) => user.externalUuid == externalUuid)
+    const foundIndex = users.findIndex((user) => user.id == externalUuid)
     if (foundIndex != -1) usersSheet.deleteRow(foundIndex + 2) // 1 for header + 1 for index offset to zero
   }
 }
