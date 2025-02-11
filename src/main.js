@@ -20,6 +20,8 @@ function usersSetup() {
   const usersSheet = SpreadsheetApp.create(SPREADSHEETS.USERS).getActiveSheet()
   usersSheet.setName("Verified Users")
   usersSheet.getRange(1, 1, 1, SPREADSHEETS.USERS_HEADER.length).setValues([SPREADSHEETS.USERS_HEADER])
+
+  SPREADSHEETS.USERS_COLUMN_WIDTHS.map((width, widthIndex) => usersSheet.setColumnWidth(widthIndex + 1, width))
 }
 
 function offerRideSetup() {
@@ -37,6 +39,7 @@ function offerRideSetup() {
   offerRideForm.addDateTimeItem().setTitle(i18n.FORM_DEPARTURE_TIME).setHelpText(i18n.FORM_DEPARTURE_TIME_DESCRIPTION).setRequired(true)
   offerRideForm.addTextItem().setTitle(i18n.FORM_MEETING_POINT).setRequired(false)
   offerRideForm.addScaleItem().setTitle(i18n.FORM_AVAILABLE_SEATS).setBounds(1, 4).setRequired(true)
+  offerRideForm.addTextItem().setTitle(i18n.FORM_PHONE_NUMBER).setHelpText(i18n.FORM_PHONE_NUMBER_DESCRIPTION).setRequired(false)
 
   Logger.log("Setting up the ride offers spreadsheet")
 
@@ -49,4 +52,8 @@ function offerRideSetup() {
   PropertiesService.getScriptProperties().setProperty(PROPERTY.OFFER_RIDE_FORM_URL, formShortUrl)
 
   Logger.log(`Set form short url ${formShortUrl}`)
+
+  Logger.log("Setting up update phone trigger")
+
+  Triggers.updatePhoneNumber.activateTrigger(offerRideForm)
 }

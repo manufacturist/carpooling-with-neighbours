@@ -23,3 +23,21 @@ class User {
     Object.freeze(this)
   }
 }
+
+User.DATA_ROW = Object.freeze({
+  ID: 0,
+  EMAIL: 1,
+  LOCALE: 2,
+  NAME: 3,
+  PHONE_NUMBER: 4,
+  REFERENCE: 5
+})
+
+User.COLUMNS = Object.freeze({
+  ID: 1,
+  EMAIL: 2,
+  LOCALE: 3,
+  NAME: 4,
+  PHONE_NUMBER: 5,
+  REFERENCE: 6
+})

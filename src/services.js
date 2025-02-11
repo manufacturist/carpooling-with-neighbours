@@ -1,3 +1,5 @@
+const ROW_INDEX_OFFSET = 2 // 1 for header + 1 for iterating index zero offset
+
 class UserService {
 
   /**
@@ -15,13 +17,27 @@ class UserService {
     ))
   }
 
+  /**
+   * Updates the phone number of a user identified by email
+   */
+  updateUserPhoneNumber(userEmail, phoneNumber) {
+    const usersSheet = SpreadsheetApp.openById(getFileId(SPREADSHEETS.USERS)).getActiveSheet()
+    const usersData = usersSheet.getRange(2, 1, usersSheet.getLastRow() - 1, usersSheet.getLastColumn()).getValues()
+
+    for (let rowIndex = 0; rowIndex < usersData.length; rowIndex++) {
+      if (usersData[rowIndex][User.DATA_ROW.EMAIL] === userEmail) {
+        usersSheet.getRange(rowIndex + ROW_INDEX_OFFSET, User.COLUMNS.PHONE_NUMBER).setNumberFormat("@STRING@").setValue(phoneNumber)
+        break
+      }
+    }
+  }
+
   deleteUserByExternalId(externalUuid) {
     const usersSheet = SpreadsheetApp.openById(getFileId(SPREADSHEETS.USERS)).getActiveSheet()
     const usersData = usersSheet.getRange(2, 1, usersSheet.getLastRow() - 1, usersSheet.getLastColumn()).getValues()
-    const users = usersData.map(([...data]) => new User(...data))
 
-    const foundIndex = users.findIndex((user) => user.id == externalUuid)
-    if (foundIndex != -1) usersSheet.deleteRow(foundIndex + 2) // 1 for header + 1 for index offset to zero
+    const foundIndex = usersData.findIndex((userRow) => userRow[User.COLUMNS.ID] == externalUuid)
+    if (foundIndex != -1) usersSheet.deleteRow(foundIndex + ROW_INDEX_OFFSET)
   }
 }
 
@@ -36,14 +52,7 @@ class RideOfferService {
     const rideOffersSheet = SpreadsheetApp.openById(getFileId(SPREADSHEETS.RIDE_OFFERS)).getActiveSheet()
     const rideOffersRows = rideOffersSheet.getRange(2, 1, rideOffersSheet.getLastRow() - 1, rideOffersSheet.getLastColumn()).getValues()
 
-    return rideOffersRows.map((rideOfferRow) => new RideOffer(
-      rideOfferRow[0],
-      rideOfferRow[1],
-      rideOfferRow[2],
-      rideOfferRow[3],
-      rideOfferRow[4],
-      rideOfferRow[5]
-    ))
+    return rideOffersRows.map((rideOfferRow) => new RideOffer(...rideOfferRow))
   }
 
   /**
