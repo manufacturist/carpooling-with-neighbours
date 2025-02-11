@@ -31,7 +31,7 @@ class SundayRideOffersSummary {
     users.forEach((user) => {
       const userUnsubscribeUrl = `${unsubscribeUrl}?unsubscribe=${user.id}`
       const message = SundayRideOffersSummary.generateTextSummary(
-        usersByEmails, nextWeekRides, userUnsubscribeUrl, templates[user.locale], user.locale, user.name
+        usersByEmails, nextWeekRides, userUnsubscribeUrl, templates[user.locale], user
       )
 
       MailApp.sendEmail({
@@ -59,15 +59,15 @@ class SundayRideOffersSummary {
       .create()
   }
 
-  static generateTextSummary(usersByEmails, nextWeekRides, unsubscribeUrl, template, userLocale, userName) {
+  static generateTextSummary(usersByEmails, nextWeekRides, unsubscribeUrl, template, user) {
     const rides = nextWeekRides.map(ride => {
       const rideDriver = usersByEmails.get(ride.email)
-      const rideDescription = I18N[userLocale].EMAIL_BODY_RIDE_TEMPLATE_FN(ride, rideDriver)
+      const rideDescription = I18N[user.locale].EMAIL_BODY_RIDE_TEMPLATE_FN(ride, rideDriver)
 
       return rideDescription
     })
 
-    template.name = userName
+    template.name = user.name
     template.unsubscribeUrl = unsubscribeUrl
     template.rides = rides.join("\n\n")
 
