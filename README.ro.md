@@ -17,7 +17,7 @@ Este o soluție benefică pentru:
 
 * [Cum funcționează?](#cum-funcționează)
 * [Beneficiile acestei soluții](#beneficiile-acestei-soluții)
-* [Detalii tehnice](#detalii-tehnice)
+* [Configurare](#configurare)
 * [Procesul de dezvoltare](#procesul-de-dezvoltare)
 * [Idei abandonate](#idei-abandonate)
 * [Întrebări frecvente](#întrebări-frecvente)
@@ -27,26 +27,33 @@ Este o soluție benefică pentru:
 
 ## Cum funcționează?
 
-Un vecin poate oferi o cursă completând un formular. În fiecare duminică, un email este trimis în jurul orei 19:00 cu o listă de curse disponibile pentru săptămâna următoare tuturor celor interesați:
+Un vecin poate oferi o cursă completând un formular. În fiecare duminică, un email este trimis în jurul orei 18:00 cu o listă de curse disponibile pentru săptămâna următoare tuturor celor interesați:
 
 ```
-Iată cursele disponibile:
+Bună Veta,
 
-🚗 Hotelul Vega (la Gogu a lui Pupăză) | miercuri, 30.02, 13:37
+Aici sunt cursele disponibile pentru săptămâna viitoare:
+
+🚗 Hotelul Vega (la Gogu a lui Pupăză) | miercuri, 20.08, 13:37
 Șofer: Nea Mărin (Juvete, 0712345678)
 Plecare: Băilești | Locuri: 3
 
-Dacă o cursă îți este utilă, discută cu șoferul pentru a rezerva un loc. Dacă vrei să te dezabonezi de la acest serviciu, apasă aici.
+Dacă o cursă ți se potrivește, contactează șoferul pentru a rezerva un loc.
 
-Toate cele bune,
-Drumuri cu vecinii
+Poți oferi și tu o cursă aici: https://forms.gle/ABCDEFGHIJKLMNOPQ
+
+Dacă nu mai dorești să primești aceste actualizări, te poți dezabona de 
+aici: https://rb.gy/123456?unsubscribe=00000000-0000-0000-0000-000000000000
+
+Cu bine,
+Echipa Drumuri cu Vecinii
 ```
 
-Vecinii pot apoi contacta șoferul pentru a rezerva un loc.
+Pentru a utiliza această soluție, cineva din comunitate / cartier trebuie să îndeplinească rolul de Admin. Adminul trebuie să adauge manual utilizatorii într-un fișier Google de tip "Sheet". Doar cei adăugați în fișierul respectiv pot primi emailul de duminică și pot oferi curse prin formular.
 
-Pentru a utiliza această soluție, cineva din comunitate / cartier trebuie să îndeplinească rolul de Admin. Adminul trebuie să adauge manual utilizatorii într-un fișier Google de tip "Sheet". Doar utilizatorii adăugați în fișierul respectiv pot primi emailul de duminică și pot oferi curse prin formular.
+Ai nevoie doar de adresele de email ale celor interesați.
 
-Pentru șoferi, colectează-le adresa de email, numele și numărul de telefon, iar pentru restul doar adresa de email.
+💡 Pentru a avea mai mult succes cu această soluție, îți recomand să începi cu un grup mic de vecini. După ce o testați împreună și vedeți cum merge, puteți da anunțul în comunitate: "Salutare, suntem un grup de X vecini care am încercat [...]"
 
 <br/>
 
@@ -60,25 +67,28 @@ Pentru șoferi, colectează-le adresa de email, numele și numărul de telefon, 
 
 4. Există un aspect social. Trebuie să contactezi direct vecinul șofer pentru a rezerva un loc
 
-5. Este o metodă simplă de a reduce poluarea, de a te conecta cu vecinii și de a fi prietenos
+5. Este o metodă simplă de a reduce poluarea și de a te conecta cu vecinii
 
 :warning: 100 este limita de email-uri care pot fi trimise într-o zi, pentru conturile gratuite. 1500 pentru conturile workspace
 
 <br/>
 
-## Detalii tehnice
+## Configurare
 
 Pentru a instala, vei avea nevoie de un cont Google. Descarcă codul și alege una dintre următoarele metode:
 * Dacă ești o persoană tehnică, îți recomand să folosești [clasp](https://github.com/google/clasp)
-* Dacă nu, mergi la [Google Apps Script](https://script.google.com/home), creează un proiect nou și adaugă folderul `src` la proiectul nou creat, după ce descarci codul local
+* Dacă nu, mergi la [Google Apps Script](https://script.google.com/home), creează un proiect nou și adaugă folderul `src` și `template` la proiectul nou creat, după ce descarci codul local
 
-Pe pagina proiectului, mergi la editor și deschide fișierul `main.gs`. Setează fusul orar local (modificare de cod), iar apoi rulează funcția `main()`. Aceasta va face următoarele va:
-1. Crea fișierul `Users` (Sheet)
-2. Crea formularul `Offer Ride` (Form)
-3. Crea fișierul `Ride Offers` (Sheet), unde vor fi salvate răspunsurile formularului
-4. Crea un trigger care trimite un email utilizatorilor în fiecare duminică în jurul orei 19:00
+Pe pagina proiectului, mergi la editor și deschide fișierul `main.gs`. Setează fusul orar local (modificare de cod), iar apoi rulează funcția `main()`. Aceasta crează următoarele:
+1. Fișierul `Users` (Sheet)
+2. Formularul `Offer Ride` (Form)
+3. Fișierul `Ride Offers` (Sheet), unde vor fi salvate răspunsurile formularului
+4. Un trigger care setează numărul de telefon în `Users` atunci când îl adaugă șoferul
+5. Un trigger care trimite un email utilizatorilor în fiecare duminică, în jurul orei 18:00
 
-Asta e tot. Singura ta sarcină rămasă este să populezi manual lista de utilizatori. Pentru fiecare utilizator va trebui să colectezi emailul, numele, numărul de telefon, limba dorită `[en, ro]` și opțional o referință (apartament / numărul casei / biroul / echipa / firma / ceva specific contextual).
+Asta e tot. Singura ta sarcină rămasă este să populezi manual lista de utilizatori. Pentru fiecare utilizator va trebui să introduci un identificator aleator [UUID](https://www.uuidgenerator.net/), emailul, și limba dorită de către acesta `[en, ro]`; opțional mai poți adăuga numele, numărul de telefon și o referință pentru șofer (apartament / birou).
+
+Identificatorul va fi folosit pentru dezabonarea utilizatorului. Numele este util pentru a face emailul mai personalizat și pentru a reduce șansa ca acesta să ajungă la spam. Numărul de telefon este necesar pentru șoferi, iar referința îi ajută pe destinatarii emailului să înțeleagă mai bine cine este șoferul.
 
 Dacă ceva se strică, mult noroc <3 *"Țesutul digital fragil care ține această soluție laolaltă este rupt. Distruge-l și reconstruiește-l."* 
 
@@ -120,4 +130,6 @@ Dacă vrei să faci o contribuție rapidă, poți adăuga suport pentru limba ta
 
 ## Inspirație
 
-Provocarea a fost *"Cum pot crea o soluție de carpooling utilă pentru orice comunitate cu un efort minim și costuri zero?"*. Mi-am setat-o după ce un vecin m-a invitat la un drum cu mașina lui (mulțumesc Roli). Sper ca această soluție să te inspire să cauți modalități de a avea un impact mare cu un efort minim.
+Provocarea a fost "Cum pot crea o soluție de carpooling care să funcționeze pentru orice comunitate cu un efort minim și costuri zero?" Am creat această soluție după ce un vecin m-a dus cu mașina la serviciu (mulțumesc, Roli!). Sper să te inspire să cauți simplitatea. Simplu este greu.
+
+Dacă vrei să afli mai multe despre mine sau să-mi susții munca, poți vizita pagina mea de [GitHub](https://github.com/sponsors/manufacturist).

@@ -55,7 +55,7 @@ class SundayRideOffersSummary {
       .timeBased()
       .inTimezone(timeZone)
       .onWeekDay(ScriptApp.WeekDay.SUNDAY)
-      .atHour(19)
+      .atHour(18)
       .create()
   }
 
