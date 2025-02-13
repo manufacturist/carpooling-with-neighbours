@@ -4,7 +4,7 @@
 
 # Carpooling with Neighbours
 
-A zero-cost, minimal interaction solution for carpooling with your neighbours, using Google Apps Script (GAS).
+A zero-cost, minimal interaction solution for carpooling with your neighbours, using Google Apps Script.
 
 This is a beneficial solution for:
 * Residential buildings
@@ -16,9 +16,9 @@ This is a beneficial solution for:
 ## Table of contents
 
 * [How it works](#how-it-works)
-* [Benefits of this solution](#benefits-of-this-solution)
+* [Benefits](#benefits)
 * [Setup](#setup)
-* [Development process](#development-process)
+* [Development](#development)
 * [Abandoned ideas](#abandoned-ideas)
 * [FAQ](#faq)
 * [Inspiration](#inspiration)
@@ -57,11 +57,11 @@ You only need the email addresses of those interested.
 
 <br/>
 
-## Benefits of this solution
+## Benefits
 
-1. Zero costs! No app instalations or account registrations are required (except for drivers, unless they already have a Google account)
+1. Zero costs! No app instalations or account registrations required (except for drivers, unless they already have a Google account)
 
-2. It works for up to 100 users (Sunday email)
+2. It works for up to 100 neighbours (Sunday email)
 
 3. Drivers are required to have a **verified** Google account. A verified email is required when filling out the form
 
@@ -94,7 +94,7 @@ If something breaks, good luck <3 *"The frail digital connective tissue holding 
 
 <br/>
 
-## Development process
+## Development
 
 Clone this repo and make it your own. There’s no one-size-fits-all solution. Different communities, different needs.
 

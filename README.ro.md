@@ -4,7 +4,7 @@
 
 # Drumuri cu vecinii
 
-O soluție cu zero costuri și interacțiune minimă pentru a face drumuri cu vecinii (carpooling), folosind Google Apps Script (GAS).
+O soluție cu zero costuri și interacțiune minimă pentru a face drumuri cu vecinii (carpooling), folosind Google Apps Script.
 
 Este o soluție benefică pentru:
 * Clădiri rezidențiale
@@ -16,7 +16,7 @@ Este o soluție benefică pentru:
 ## Cuprins
 
 * [Cum funcționează?](#cum-funcționează)
-* [Beneficiile acestei soluții](#beneficiile-acestei-soluții)
+* [Beneficii](#beneficiil)
 * [Configurare](#configurare)
 * [Procesul de dezvoltare](#procesul-de-dezvoltare)
 * [Idei abandonate](#idei-abandonate)
@@ -57,11 +57,11 @@ Ai nevoie doar de adresele de email ale celor interesați.
 
 <br/>
 
-## Beneficiile acestei soluții
+## Beneficii
 
-1. Costuri zero! Nu necesită instalări de aplicații sau înregistrări de conturi (cu excepția șoferilor, dacă nu au cont de Google)
+1. Costuri zero! Fără instalări de aplicații sau înregistrări de conturi (cu excepția șoferilor, dacă nu au cont de Google)
 
-2. Funcționează cu maxim 100 de utilizatori (emailul de duminică)
+2. Funcționează cu până la 100 de vecini (emailul de duminică)
 
 3. Șoferii trebuie să aibă un cont de Google **verificat**. Un email verificat este necesar la completarea formularului
 
