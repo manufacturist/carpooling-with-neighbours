@@ -19,7 +19,6 @@ This is a beneficial solution for:
 * [Benefits](#benefits)
 * [Setup](#setup)
 * [Development](#development)
-* [Abandoned ideas](#abandoned-ideas)
 * [FAQ](#faq)
 * [Inspiration](#inspiration)
 
@@ -108,23 +107,17 @@ If you want to make a quick contribution, add support for your native language i
 
 <br/>
 
-## Abandoned ideas
-
-1. **A form for reserving a ride**
-   * It complicates the UX and the code
-   * We want to promote social interaction, not limit it
-   * What if the driver doesn’t know or like the person who reserved the spot?
-
-2. **Forms i18n for drivers (multiple forms)**
-   * It complicates the code (requires one sheet per form)
-   * English is king
-
-<br/>
-
 ## FAQ
 
 * **Why not add a form for users to allow them to easily subscribe to the ride offers email?** <br/>
-  Zero trust in users. Always. Vet them one by one.
+  * Zero trust in users. Vet them one by one
+  * It complicates the UX and the code
+  * We want to promote social interaction, not limit it
+  * What if the driver doesn’t know or like the person who reserved the spot?
+
+* **What do you think about multilingual forms for drivers?**
+  * It complicates the code (requires one sheet per form)
+  * English is king
 
 <br/>
 

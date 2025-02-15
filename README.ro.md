@@ -19,7 +19,6 @@ Este o soluție benefică pentru:
 * [Beneficii](#beneficiil)
 * [Configurare](#configurare)
 * [Procesul de dezvoltare](#procesul-de-dezvoltare)
-* [Idei abandonate](#idei-abandonate)
 * [Întrebări frecvente](#întrebări-frecvente)
 * [Inspirație](#inspirație)
 
@@ -108,23 +107,16 @@ Dacă vrei să faci o contribuție rapidă, poți adăuga suport pentru limba ta
 
 <br/>
 
-## Idei abandonate
-
-1. **Un formular pentru rezervarea unei curse**
-   * Complică UX-ul și codul
-   * Vrem să promovăm interacțiunea socială, nu să o limităm
-   * Ce faci dacă șoferul nu cunoaște sau nu îi place persoana care a rezervat un loc?
-
-2. **Formulare i18n pentru șoferi (formulare multiple)**
-   * Complică codul
-   * Engleza este baza
-
-<br/>
-
 ## Întrebări frecvente
 
 * **De ce nu adaugi un formular astfel încât utilizatorii să dea subscribe la emailul de curse disponibile?** <br/>
-   Zero încredere în utilizatori. Întotdeauna. Evaluează-i unul câte unul.
+  * Zero încredere în utilizatori. Întotdeauna. Evaluează-i unul câte unul
+  * Vrem să promovăm interacțiunea socială (șofer - pasager), nu să o limităm
+  * Complică UX-ul și codul
+
+* **Ce părere ai despre formulare în mai multe limbi pentru șoferi?**
+  * There hasn’t been a need for this yet
+  * It complicates the code (one sheet per form)
 
 <br/>
 

@@ -35,8 +35,8 @@ function deleteUsersSpreadsheet() {
 }
 
 function deleteRideOfferDependencies() {
-  const locale = PropertiesService.getScriptProperties().getProperty(PROPERTY.LOCALE)
-  const i18n = I18N[locale]
+  const language = PropertiesService.getScriptProperties().getProperty(PROPERTY.LANGUAGE)
+  const i18n = I18N[language]
 
   const forms = DriveApp.getFilesByName(i18n.FORM_TITLE)
   while (forms.hasNext()) {

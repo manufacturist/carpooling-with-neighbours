@@ -1,16 +1,30 @@
-/**
- * https://developers.google.com/apps-script/guides/web
- * 
- * This function performs the unsubscribe for users. It removes them from the users spreadsheet
- */
-function doGet(e) {
-  Logger.log(e.parameter)
+function setAutomaticUnsubscribeTrigger() {
+  const unsubscribeWords = Object.keys(I18N).map((key) => I18N[key].UNSUBSCRIBE)
 
-  const unsubscribeUuid = e.parameter.unsubscribe
+  const scriptProperties = PropertiesService.getScriptProperties()
+  const replyToEmail = scriptProperties.getProperty(PROPERTY.REPLY_TO_EMAIL)
 
-  if (unsubscribeUuid) {
-    Services.userService.deleteUserByExternalId(unsubscribeUuid)
-  }
+  GmailApp.search(`to:${replyToEmail}`).forEach((thread) => {
+    let userEmail = undefined
 
-  return ContentService.createTextOutput('OK')
+    thread.getMessages().forEach((message) => {
+      const repliedWithUnsubscribeWord = unsubscribeWords.some((unsubscribeWord) => {
+        message.getPlainBody().startsWith(unsubscribeWord)
+      })
+
+      if (repliedWithUnsubscribeWord) {
+        userEmail = extractEmail(message.getFrom())
+      }
+    })
+
+    if (userEmail) {
+      Services.userService.deleteUserByEmail(userEmail)
+      thread.moveToTrash()
+    }
+  })
+}
+
+function extractEmail(sender) {
+  const match = sender.match(/<(.+)>/)
+  return match ? match[1] : sender
 }

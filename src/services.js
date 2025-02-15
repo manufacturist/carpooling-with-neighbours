@@ -6,19 +6,22 @@ class UserService {
    * Returns a map of email keys and User values. They are all returned from 
    * the "users" spreadsheet.
    * 
-   * @returns {Map<String, User>} A map of users identifiable by their email addresses
+   * @returns {Map<Email, User>} A map of users identifiable by their email addresses
    */
   fetchUsersByEmailsMap() {
     const usersSheet = SpreadsheetApp.openById(getFileId(SPREADSHEETS.USERS)).getActiveSheet()
     const usersData = usersSheet.getRange(2, 1, usersSheet.getLastRow() - 1, usersSheet.getLastColumn()).getValues()
 
-    return new Map(usersData.map(([id, email, ...data]) =>
-      [email, new User(id, email, ...data)]
+    return new Map(usersData.map(([email, ...data]) =>
+      [email, new User(email, ...data)]
     ))
   }
 
   /**
-   * Updates the phone number of a user identified by email
+   * Updates the phone number of a specific user (identified by email)
+   * 
+   * @param {Email} userEmail - User email
+   * @param {PhoneNumber} phoneNumber - User phone number
    */
   updateUserPhoneNumber(userEmail, phoneNumber) {
     const usersSheet = SpreadsheetApp.openById(getFileId(SPREADSHEETS.USERS)).getActiveSheet()
@@ -32,11 +35,16 @@ class UserService {
     }
   }
 
-  deleteUserByExternalId(externalUuid) {
+  /**
+     * Deletes a specific user from the spreadsheet (identified by email)
+     * 
+     * @param {Email} email - User email
+     */
+  deleteUserByEmail(email) {
     const usersSheet = SpreadsheetApp.openById(getFileId(SPREADSHEETS.USERS)).getActiveSheet()
     const usersData = usersSheet.getRange(2, 1, usersSheet.getLastRow() - 1, usersSheet.getLastColumn()).getValues()
 
-    const foundIndex = usersData.findIndex((userRow) => userRow[User.COLUMNS.ID] == externalUuid)
+    const foundIndex = usersData.findIndex((userRow) => userRow[User.COLUMNS.EMAIL] == email)
     if (foundIndex != -1) usersSheet.deleteRow(foundIndex + ROW_INDEX_OFFSET)
   }
 }
@@ -60,7 +68,7 @@ class RideOfferService {
    * that if the drivers that completed the form are not mentioned in the "Verified 
    * Users" sheet, that ride offer will be filtered out.
    * 
-   * @param {Map<String, User>} usersByEmails - A map of email keys and User values
+   * @param {Map<Email, User>} usersByEmails - A map of email keys and User values
    * @returns {Array<RideOffer>} An array of ride offers
    */
   fetchValidatedNextWeekRideOffers(usersByEmails) {
@@ -85,6 +93,9 @@ class RideOfferService {
     return activeRideOffers.sort((a, b) => a.when - b.when)
   }
 
+  /**
+   * Deletes rides with a creation timestamp older than RIDE_OFFERS_TTL
+   */
   deleteOldRideOffers() {
     const rideOffersSheet = SpreadsheetApp.openById(getFileId(SPREADSHEETS.RIDE_OFFERS)).getActiveSheet()
     const rideOffers = this.fetchAllUpcomingRideOffers()

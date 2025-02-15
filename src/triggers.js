@@ -1,15 +1,16 @@
 class SundayRideOffersSummary {
 
   /**
-   * Sends an email to a list of users, one for each supported locale, 
-   * using the appropriate locale configuration for each user.
+   * Sends an email to a list of users using the appropriate language configuration for each user
    */
   fn() {
     const scriptProperties = PropertiesService.getScriptProperties()
     const offerRideFormUrl = scriptProperties.getProperty(PROPERTY.OFFER_RIDE_FORM_URL)
-    const unsubscribeUrl = scriptProperties.getProperty(PROPERTY.UNSUBSCRIBE_URL)
+    const unsubscribeMode = scriptProperties.getProperty(PROPERTY.UNSUBSCRIBE_MODE)
 
     Logger.log(`Current email quota: ${MailApp.getRemainingDailyQuota()}`)
+
+    const replyToEmail = Session.getEffectiveUser().getEmail().replace('@', '+carpooling-unsubscribe@')
 
     const usersByEmails = Services.userService.fetchUsersByEmailsMap()
     const nextWeekRides = Services.rideOfferService.fetchValidatedNextWeekRideOffers(usersByEmails)
@@ -29,16 +30,21 @@ class SundayRideOffersSummary {
     templates.ro.offerRideFormUrl = offerRideFormUrl
 
     users.forEach((user) => {
-      const userUnsubscribeUrl = `${unsubscribeUrl}?unsubscribe=${user.id}`
+      const unsubscribeMessage =
+        unsubscribeMode == UNSUBSCRIBE_MODE.MANUAL ? I18N[user.language].EMAIL_UNSUBSCRIBE_MANUAL :
+          unsubscribeMode == UNSUBSCRIBE_MODE.AUTO ? I18N[user.language].EMAIL_UNSUBSCRIBE_AUTO
+            : null
+
       const message = SundayRideOffersSummary.generateTextSummary(
-        usersByEmails, nextWeekRides, userUnsubscribeUrl, templates[user.locale], user
+        usersByEmails, nextWeekRides, unsubscribeMessage, templates[user.language], user
       )
 
       MailApp.sendEmail({
-        name: I18N[user.locale].EMAIL_NAME,
-        subject: I18N[user.locale].EMAIL_SUBJECT,
+        name: I18N[user.language].EMAIL_NAME,
+        subject: I18N[user.language].EMAIL_SUBJECT,
         to: user.email,
-        body: message
+        body: message,
+        replyTo: replyToEmail
       })
     })
 
@@ -49,7 +55,7 @@ class SundayRideOffersSummary {
   }
 
   activateTrigger() {
-    const timeZone = PropertiesService.getScriptProperties().getProperty(PROPERTY.TIMEZONE)
+    const timeZone = Session.getScriptTimeZone()
 
     ScriptApp.newTrigger('Triggers.sundayRideOffersSummary.fn')
       .timeBased()
@@ -57,19 +63,22 @@ class SundayRideOffersSummary {
       .onWeekDay(ScriptApp.WeekDay.SUNDAY)
       .atHour(18)
       .create()
+
+    Logger.log("Activated Sunday email trigger")
   }
 
-  static generateTextSummary(usersByEmails, nextWeekRides, unsubscribeUrl, template, user) {
+  static generateTextSummary(usersByEmails, nextWeekRides, unsubscribeMessage, template, user) {
     const rides = nextWeekRides.map(ride => {
       const rideDriver = usersByEmails.get(ride.email)
-      const rideDescription = I18N[user.locale].EMAIL_BODY_RIDE_TEMPLATE_FN(ride, rideDriver)
+      const rideDescription = I18N[user.language].EMAIL_BODY_RIDE_TEMPLATE_FN(ride, rideDriver)
 
       return rideDescription
     })
 
     template.name = user.name
-    template.unsubscribeUrl = unsubscribeUrl
     template.rides = rides.join("\n\n")
+
+    if (unsubscribeMessage) template.unsubscribeMessage = unsubscribeMessage
 
     return template.evaluate().getContent()
   }
@@ -99,6 +108,8 @@ class UpdatePhoneNumber {
       .forForm(form)
       .onFormSubmit()
       .create()
+
+    Logger.log("Activated phone number update trigger")
   }
 }
 

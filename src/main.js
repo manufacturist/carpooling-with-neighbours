@@ -1,17 +1,22 @@
 function main() {
-  // Pick a valid IANA Time Zone https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  const scriptProperties = PropertiesService.getScriptProperties()
-  scriptProperties.setProperty(PROPERTY.LOCALE, "ro")
-  scriptProperties.setProperty(PROPERTY.TIMEZONE, "Europe/Bucharest")
-  scriptProperties.setProperty(PROPERTY.RIDE_OFFERS_TTL, 60 * 24 * 60 * 60 * 1000)
-
-  const unsubscribeUrl = scriptProperties.getProperty(PROPERTY.UNSUBSCRIBE_URL)
-  if (!unsubscribeUrl) scriptProperties.setProperty(PROPERTY.UNSUBSCRIBE_URL, "TODO: make deployment; add in script properties after")
+  const language = 'en'
+  setDefaultProperties(language)
 
   usersSetup()
   offerRideSetup()
 
   Triggers.sundayRideOffersSummary.activateTrigger()
+}
+
+function setDefaultProperties(language) {
+  const supportedLanguage = Object.keys(I18N).includes(language) ? language : 'en'
+  const replyToEmail = Session.getEffectiveUser().getEmail().replace('@', '+carpooling-unsubscribe@')
+
+  const scriptProperties = PropertiesService.getScriptProperties()
+  scriptProperties.setProperty(PROPERTY.LANGUAGE, supportedLanguage)
+  scriptProperties.setProperty(PROPERTY.RIDE_OFFERS_TTL, 60 * 24 * 60 * 60 * 1000)
+  scriptProperties.setProperty(PROPERTY.REPLY_TO_EMAIL, replyToEmail)
+  scriptProperties.setProperty(PROPERTY.UNSUBSCRIBE_MODE, UNSUBSCRIBE_MODE.MANUAL)
 }
 
 function usersSetup() {
@@ -25,8 +30,8 @@ function usersSetup() {
 }
 
 function offerRideSetup() {
-  const locale = PropertiesService.getScriptProperties().getProperty(PROPERTY.LOCALE)
-  const i18n = I18N[locale]
+  const language = PropertiesService.getScriptProperties().getProperty(PROPERTY.LANGUAGE)
+  const i18n = I18N[language]
 
   Logger.log("Setting up the offer ride form")
 
@@ -52,8 +57,6 @@ function offerRideSetup() {
   PropertiesService.getScriptProperties().setProperty(PROPERTY.OFFER_RIDE_FORM_URL, formShortUrl)
 
   Logger.log(`Set form short url ${formShortUrl}`)
-
-  Logger.log("Setting up update phone trigger")
 
   Triggers.updatePhoneNumber.activateTrigger(offerRideForm)
 }

@@ -12,10 +12,9 @@ class RideOffer {
 }
 
 class User {
-  constructor(id, email, locale, name, phoneNumber, reference) {
-    this.id = id
+  constructor(email, language, name, phoneNumber, reference) {
     this.email = email
-    this.locale = locale
+    this.language = language
     this.name = name
     this.phoneNumber = phoneNumber
     this.reference = reference
@@ -25,19 +24,19 @@ class User {
 }
 
 User.DATA_ROW = Object.freeze({
-  ID: 0,
-  EMAIL: 1,
-  LOCALE: 2,
-  NAME: 3,
-  PHONE_NUMBER: 4,
-  REFERENCE: 5
+  EMAIL: 0,
+  LANGUAGE: 1,
+  NAME: 2,
+  PHONE_NUMBER: 3,
+  REFERENCE: 4,
+  ID: 5
 })
 
 User.COLUMNS = Object.freeze({
-  ID: 1,
-  EMAIL: 2,
-  LOCALE: 3,
-  NAME: 4,
-  PHONE_NUMBER: 5,
-  REFERENCE: 6
+  EMAIL: 1,
+  LANGUAGE: 2,
+  NAME: 3,
+  PHONE_NUMBER: 4,
+  REFERENCE: 5,
+  ID: 6
 })

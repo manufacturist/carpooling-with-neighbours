@@ -1,15 +1,20 @@
 const PROPERTY = {
-  LOCALE: "LOCALE",
-  TIMEZONE: "TIMEZONE",
+  LANGUAGE: "LANGUAGE",
   RIDE_OFFERS_TTL: "RIDE_OFFERS_TTL",
-  UNSUBSCRIBE_URL: "UNSUBSCRIBE_URL",
+  REPLY_TO_EMAIL: "REPLY_TO_EMAIL",
+  UNSUBSCRIBE_MODE: "UNSUBSCRIBE_MODE",
   OFFER_RIDE_FORM_URL: "OFFER_RIDE_FORM_URL"
+}
+
+const UNSUBSCRIBE_MODE = {
+  MANUAL: "manual",
+  AUTO: "auto"
 }
 
 const SPREADSHEETS = {
   USERS: "[carpool][db][users]",
-  USERS_HEADER: ["Id [UUID]", "Email Address", "Locale", "Name", "Phone Number", "Identifying Reference"],
-  USERS_COLUMN_WIDTHS: [300, 220, 70, 90, 120, 200],
+  USERS_HEADER: ["Email Address", "Language", "Name", "Phone Number", "Identifying Reference"],
+  USERS_COLUMN_WIDTHS: [220, 70, 90, 120, 200],
   RIDE_OFFERS: "[carpool][db][rideOffers]"
 }
 
@@ -27,6 +32,8 @@ const I18N = {
 
     EMAIL_NAME: "Carpooling with Neighbors",
     EMAIL_SUBJECT: "Available Rides for the Upcoming Week",
+    EMAIL_UNSUBSCRIBE_MANUAL: "If you'd rather not receive these updates, tell us by replying to this email, and we'll remove you manually.",
+    EMAIL_UNSUBSCRIBE_AUTO: "If you'd rather not receive these updates, you can unsubscribe automatically by replying with the word 'unsubscribe'.",
     EMAIL_BODY_RIDE_TEMPLATE_FN: (ride, driver) => {
       const formattedDate = new Intl.DateTimeFormat('en', {
         weekday: 'long',
@@ -44,7 +51,9 @@ const I18N = {
       const line3 = `${meetingPoint}Seats: ${ride.seats}`
 
       return [line1, line2, line3].join("\n")
-    }
+    },
+
+    UNSUBSCRIBE: "unsubscribe"
   },
   ro: {
     FORM_TITLE: "[Drumuri cu Vecinii] Oferă o cursă",
@@ -59,6 +68,8 @@ const I18N = {
 
     EMAIL_NAME: "Drumuri cu Vecinii",
     EMAIL_SUBJECT: "Curse disponibile pentru săptămâna viitoare",
+    EMAIL_UNSUBSCRIBE_MANUAL: "Dacă nu mai dorești să primești aceste actualizări, spuneți-ne răspunzând la acest email și vă vom dezabona manual.",
+    EMAIL_UNSUBSCRIBE_AUTO: "Dacă nu mai dorești să primești aceste actualizări, te poți dezabona automat răspunzând doar cu 'dezabonare'.",
     EMAIL_BODY_RIDE_TEMPLATE_FN: (ride, driver) => {
       const formattedDate = new Intl.DateTimeFormat('ro', {
         weekday: 'long',
@@ -76,6 +87,8 @@ const I18N = {
       const line3 = `${meetingPoint}Locuri: ${ride.seats}`
 
       return [line1, line2, line3].join("\n")
-    }
+    },
+
+    UNSUBSCRIBE: "dezabonare"
   }
 }
