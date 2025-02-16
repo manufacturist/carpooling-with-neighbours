@@ -3,15 +3,20 @@
  * require extra permissions, which should be granted when running it
  */
 function uninstall() {
+  const scriptProperties = PropertiesService.getScriptProperties()
+  const usersSSID = scriptProperties.getProperty(PROPERTY.USERS_SSID)
+  const offerRideFID = scriptProperties.getProperty(PROPERTY.OFFER_RIDE_FID)
+  const rideOffersSSID = scriptProperties.getProperty(PROPERTY.RIDE_OFFERS_SSID)
+
   try {
-    deleteUsersSpreadsheet()
+    deleteUsersSpreadsheet(usersSSID)
     Logger.log("Deleted user spreadsheet.")
   } catch (e) {
     Logger.log("Failed to delete user spreadsheet: " + e)
   }
 
   try {
-    deleteRideOfferDependencies()
+    deleteRideOfferFormAndSheet(offerRideFID, rideOffersSSID)
     Logger.log("Deleted ride offer dependencies.")
   } catch (e) {
     Logger.log("Failed to delete ride offer dependencies: " + e)
@@ -25,32 +30,23 @@ function uninstall() {
   }
 }
 
-function deleteUsersSpreadsheet() {
-  const files = DriveApp.getFilesByName(SPREADSHEETS.USERS)
-  while (files.hasNext()) {
-    const file = files.next()
-    file.setTrashed(true)
-    Logger.log(`Deleted spreadsheet: ${file.getName()}`)
-  }
+function deleteUsersSpreadsheet(id) {
+  const file = DriveApp.getFileById(id)
+  file.setTrashed(true)
+
+  Logger.log(`Deleted spreadsheet: ${file.getName()}`)
 }
 
-function deleteRideOfferDependencies() {
-  const language = PropertiesService.getScriptProperties().getProperty(PROPERTY.LANGUAGE)
-  const i18n = I18N[language]
+function deleteRideOfferFormAndSheet(formId, sheetId) {
+  const formFile = DriveApp.getFileById(formId)
+  formFile.setTrashed(true)
 
-  const forms = DriveApp.getFilesByName(i18n.FORM_TITLE)
-  while (forms.hasNext()) {
-    const form = forms.next()
-    form.setTrashed(true)
-    Logger.log(`Deleted form: ${form.getName()}`)
-  }
+  Logger.log(`Deleted form: ${formFile.getName()}`)
 
-  const rideOffersSheets = DriveApp.getFilesByName(SPREADSHEETS.RIDE_OFFERS)
-  while (rideOffersSheets.hasNext()) {
-    const sheet = rideOffersSheets.next()
-    sheet.setTrashed(true)
-    Logger.log(`Deleted ride offers sheet: ${sheet.getName()}`)
-  }
+  const sheetFile = DriveApp.getFileById(sheetId)
+  sheetFile.setTrashed(true)
+
+  Logger.log(`Deleted ride offers sheet: ${sheetFile.getName()}`)
 }
 
 function deleteTriggers() {

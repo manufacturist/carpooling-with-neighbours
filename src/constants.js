@@ -3,7 +3,10 @@ const PROPERTY = {
   RIDE_OFFERS_TTL: "RIDE_OFFERS_TTL",
   REPLY_TO_EMAIL: "REPLY_TO_EMAIL",
   UNSUBSCRIBE_MODE: "UNSUBSCRIBE_MODE",
-  OFFER_RIDE_FORM_URL: "OFFER_RIDE_FORM_URL"
+  OFFER_RIDE_FORM_URL: "OFFER_RIDE_FORM_URL",
+  USERS_SSID: "USERS_SSID",
+  RIDE_OFFERS_SSID: "RIDE_OFFERS_SSID",
+  OFFER_RIDE_FID: "OFFER_RIDE_FID"
 }
 
 const UNSUBSCRIBE_MODE = {
@@ -68,7 +71,7 @@ const I18N = {
 
     EMAIL_NAME: "Drumuri cu Vecinii",
     EMAIL_SUBJECT: "Curse disponibile pentru săptămâna viitoare",
-    EMAIL_UNSUBSCRIBE_MANUAL: "Dacă nu mai dorești să primești aceste actualizări, spuneți-ne răspunzând la acest email și vă vom dezabona manual.",
+    EMAIL_UNSUBSCRIBE_MANUAL: "Dacă nu mai dorești să primești aceste actualizări, spune-ne răspunzând la acest email și te vom dezabona manual.",
     EMAIL_UNSUBSCRIBE_AUTO: "Dacă nu mai dorești să primești aceste actualizări, te poți dezabona automat răspunzând doar cu 'dezabonare'.",
     EMAIL_BODY_RIDE_TEMPLATE_FN: (ride, driver) => {
       const formattedDate = new Intl.DateTimeFormat('ro', {

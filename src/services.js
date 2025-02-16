@@ -9,7 +9,10 @@ class UserService {
    * @returns {Map<Email, User>} A map of users identifiable by their email addresses
    */
   fetchUsersByEmailsMap() {
-    const usersSheet = SpreadsheetApp.openById(getFileId(SPREADSHEETS.USERS)).getActiveSheet()
+    const scriptProperties = PropertiesService.getScriptProperties()
+    const usersSSID = scriptProperties.getProperty(PROPERTY.USERS_SSID)
+
+    const usersSheet = SpreadsheetApp.openById(usersSSID).getActiveSheet()
     const usersData = usersSheet.getRange(2, 1, usersSheet.getLastRow() - 1, usersSheet.getLastColumn()).getValues()
 
     return new Map(usersData.map(([email, ...data]) =>
@@ -24,7 +27,10 @@ class UserService {
    * @param {PhoneNumber} phoneNumber - User phone number
    */
   updateUserPhoneNumber(userEmail, phoneNumber) {
-    const usersSheet = SpreadsheetApp.openById(getFileId(SPREADSHEETS.USERS)).getActiveSheet()
+    const scriptProperties = PropertiesService.getScriptProperties()
+    const usersSSID = scriptProperties.getProperty(PROPERTY.USERS_SSID)
+
+    const usersSheet = SpreadsheetApp.openById(usersSSID).getActiveSheet()
     const usersData = usersSheet.getRange(2, 1, usersSheet.getLastRow() - 1, usersSheet.getLastColumn()).getValues()
 
     for (let rowIndex = 0; rowIndex < usersData.length; rowIndex++) {
@@ -41,7 +47,10 @@ class UserService {
      * @param {Email} email - User email
      */
   deleteUserByEmail(email) {
-    const usersSheet = SpreadsheetApp.openById(getFileId(SPREADSHEETS.USERS)).getActiveSheet()
+    const scriptProperties = PropertiesService.getScriptProperties()
+    const usersSSID = scriptProperties.getProperty(PROPERTY.USERS_SSID)
+
+    const usersSheet = SpreadsheetApp.openById(usersSSID).getActiveSheet()
     const usersData = usersSheet.getRange(2, 1, usersSheet.getLastRow() - 1, usersSheet.getLastColumn()).getValues()
 
     const foundIndex = usersData.findIndex((userRow) => userRow[User.COLUMNS.EMAIL] == email)
@@ -57,21 +66,24 @@ class RideOfferService {
    * @returns {Array<RideOffer>} An array of ride offers
    */
   fetchAllUpcomingRideOffers() {
-    const rideOffersSheet = SpreadsheetApp.openById(getFileId(SPREADSHEETS.RIDE_OFFERS)).getActiveSheet()
+    const scriptProperties = PropertiesService.getScriptProperties()
+    const rideOffersSSID = scriptProperties.getProperty(PROPERTY.RIDE_OFFERS_SSID)
+
+    const rideOffersSheet = SpreadsheetApp.openById(rideOffersSSID).getActiveSheet()
     const rideOffersRows = rideOffersSheet.getRange(2, 1, rideOffersSheet.getLastRow() - 1, rideOffersSheet.getLastColumn()).getValues()
 
     return rideOffersRows.map((rideOfferRow) => new RideOffer(...rideOfferRow))
   }
 
   /**
-   * A list of validated ride offers for the upcomming week. Validated implies here 
-   * that if the drivers that completed the form are not mentioned in the "Verified 
+   * A list of sorted and validated ride offers for the upcomming week. Validated implies 
+   * here that if the drivers that completed the form are not mentioned in the "Verified 
    * Users" sheet, that ride offer will be filtered out.
    * 
    * @param {Map<Email, User>} usersByEmails - A map of email keys and User values
    * @returns {Array<RideOffer>} An array of ride offers
    */
-  fetchValidatedNextWeekRideOffers(usersByEmails) {
+  fetchSortedNextWeekRideOffers(usersByEmails) {
     const validRideOffers = this.fetchAllUpcomingRideOffers().filter(offer => usersByEmails.has(offer.email))
 
     const now = new Date()
@@ -97,7 +109,10 @@ class RideOfferService {
    * Deletes rides with a creation timestamp older than RIDE_OFFERS_TTL
    */
   deleteOldRideOffers() {
-    const rideOffersSheet = SpreadsheetApp.openById(getFileId(SPREADSHEETS.RIDE_OFFERS)).getActiveSheet()
+    const scriptProperties = PropertiesService.getScriptProperties()
+    const rideOffersSSID = scriptProperties.getProperty(PROPERTY.RIDE_OFFERS_SSID)
+
+    const rideOffersSheet = SpreadsheetApp.openById(rideOffersSSID).getActiveSheet()
     const rideOffers = this.fetchAllUpcomingRideOffers()
     if (rideOffers.length <= 50) return
 
@@ -124,16 +139,4 @@ class RideOfferService {
 const Services = {
   userService: new UserService(),
   rideOfferService: new RideOfferService()
-}
-
-function getFileId(fileName) {
-  const files = DriveApp.getFilesByName(fileName)
-
-  if (files.hasNext()) {
-    return files.next().getId()
-  }
-
-  throw new Error(
-    `File ${fileName} not found. The frail digital connective tissue holding this solution all together is broken. Destroy it and rebuild it.`
-  )
 }

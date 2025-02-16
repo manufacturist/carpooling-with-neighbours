@@ -20,22 +20,32 @@ function setDefaultProperties(language) {
 }
 
 function usersSetup() {
+  const scriptProperties = PropertiesService.getScriptProperties()
+
   Logger.log("Setting up users spreadsheet")
 
-  const usersSheet = SpreadsheetApp.create(SPREADSHEETS.USERS).getActiveSheet()
+  const usersSpreadsheet = SpreadsheetApp.create(SPREADSHEETS.USERS)
+  scriptProperties.setProperty(PROPERTY.USERS_SSID, usersSpreadsheet.getId())
+
+  const usersSheet = usersSpreadsheet.getActiveSheet()
   usersSheet.setName("Verified Users")
   usersSheet.getRange(1, 1, 1, SPREADSHEETS.USERS_HEADER.length).setValues([SPREADSHEETS.USERS_HEADER])
 
   SPREADSHEETS.USERS_COLUMN_WIDTHS.map((width, widthIndex) => usersSheet.setColumnWidth(widthIndex + 1, width))
+
+  Logger.log(`Set up users spreadsheet: ${usersSpreadsheet.getUrl()}`)
 }
 
 function offerRideSetup() {
-  const language = PropertiesService.getScriptProperties().getProperty(PROPERTY.LANGUAGE)
+  const scriptProperties = PropertiesService.getScriptProperties()
+  const language = scriptProperties.getProperty(PROPERTY.LANGUAGE)
   const i18n = I18N[language]
 
   Logger.log("Setting up the offer ride form")
 
   const offerRideForm = FormApp.create(i18n.FORM_TITLE)
+  scriptProperties.setProperty(PROPERTY.OFFER_RIDE_FID, offerRideForm.getId())
+
   offerRideForm.setDescription(i18n.FORM_DESCRIPTION)
   offerRideForm.setEmailCollectionType(FormApp.EmailCollectionType.VERIFIED)
   offerRideForm.setCollectEmail(true)
@@ -46,17 +56,21 @@ function offerRideSetup() {
   offerRideForm.addScaleItem().setTitle(i18n.FORM_AVAILABLE_SEATS).setBounds(1, 4).setRequired(true)
   offerRideForm.addTextItem().setTitle(i18n.FORM_PHONE_NUMBER).setHelpText(i18n.FORM_PHONE_NUMBER_DESCRIPTION).setRequired(false)
 
+  const formShortUrl = offerRideForm.shortenFormUrl(offerRideForm.getPublishedUrl())
+  scriptProperties.setProperty(PROPERTY.OFFER_RIDE_FORM_URL, formShortUrl)
+
+  Logger.log(`Set up form: ${formShortUrl}`)
+
   Logger.log("Setting up the ride offers spreadsheet")
 
-  const rideOffersSheet = SpreadsheetApp.create(SPREADSHEETS.RIDE_OFFERS)
-  offerRideForm.setDestination(FormApp.DestinationType.SPREADSHEET, rideOffersSheet.getId())
-  rideOffersSheet.deleteSheet(rideOffersSheet.getSheetByName("Sheet1"))
-  rideOffersSheet.getActiveSheet().setName("Offer Ride Responses")
+  const rideOffersSpreadsheet = SpreadsheetApp.create(SPREADSHEETS.RIDE_OFFERS)
+  scriptProperties.setProperty(PROPERTY.RIDE_OFFERS_SSID, rideOffersSpreadsheet.getId())
 
-  const formShortUrl = offerRideForm.shortenFormUrl(offerRideForm.getPublishedUrl())
-  PropertiesService.getScriptProperties().setProperty(PROPERTY.OFFER_RIDE_FORM_URL, formShortUrl)
+  offerRideForm.setDestination(FormApp.DestinationType.SPREADSHEET, rideOffersSpreadsheet.getId())
+  rideOffersSpreadsheet.deleteSheet(rideOffersSpreadsheet.getSheetByName("Sheet1"))
+  rideOffersSpreadsheet.getActiveSheet().setName("Offer Ride Responses")
 
-  Logger.log(`Set form short url ${formShortUrl}`)
+  Logger.log(`Set up ride offers: ${rideOffersSpreadsheet.getUrl()}`)
 
   Triggers.updatePhoneNumber.activateTrigger(offerRideForm)
 }
