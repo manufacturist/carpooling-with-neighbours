@@ -136,7 +136,7 @@ Dacă vrei să faci o contribuție rapidă, poți adăuga suport pentru limba ta
 
 ## Întrebări frecvente
 
-* **De ce nu folosim un formular prin care vecinul se poate abona ușor la email-urile cu oferte de ride?** <br/>
+* **De ce nu folosim un formular prin care vecinul se poate abona ușor la email-urile de informare?** <br/>
   * Încercăm să limităm accesul la datele personale ale șoferilor, la minimul necesar
 
 * **De ce nu folosim un formular pentru rezervarea curselor?** <br/>
