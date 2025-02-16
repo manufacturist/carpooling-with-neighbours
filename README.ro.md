@@ -128,7 +128,7 @@ Dacă faci o schimbare care aduce un beneficiu comunității tale și consideri 
 1. UX-ul trebuie să rămână simplu și minimalist
 2. Dacă este prea personalizat pentru comunitatea ta și nu i-ar ajuta pe alții, poate că o extensie ar fi mai utilă
 
-Extensia ar trebui să refolosească fișierele create, dar atenție, pentru că va necesita un domeniu de autorizare mai puternic, și anume `https://www.googleapis.com/auth/drive`. Cel mai probabil utilizatorii vor fi nevoiți să ia din proprietățile scriptului de față, id-urile pentru spreadsheet-uri, `USERS_SSID` & `RIDE_OFFERS_SSID`, și să le adauge în extensie.
+Extensia ar fi un script independent și ar trebui să refolosească fișierele create, dar atenție, pentru că va necesita un domeniu de autorizare mai puternic, și anume `https://www.googleapis.com/auth/drive`. Cel mai probabil utilizatorii vor fi nevoiți să ia din proprietățile scriptului de față, id-urile pentru spreadsheet-uri, `USERS_SSID` & `RIDE_OFFERS_SSID`, și să le adauge în extensie.
 
 Dacă vrei să faci o contribuție rapidă, poți adăuga suport pentru limba ta maternă dacă nu există deja (fișierul `src/contants.js`).
 
@@ -136,12 +136,12 @@ Dacă vrei să faci o contribuție rapidă, poți adăuga suport pentru limba ta
 
 ## Întrebări frecvente
 
-* **De ce nu folosim un formular prin care utilizatorii se pot abona ușor la email-urile cu oferte de ride?** <br/>
-  * Încercăm să limităm accesul la minimul necesar, la datele personale ale șoferilor
+* **De ce nu folosim un formular prin care vecinul se poate abona ușor la email-urile cu oferte de ride?** <br/>
+  * Încercăm să limităm accesul la datele personale ale șoferilor, la minimul necesar
 
-* **De ce nu folosim un formular pentru a rezerva curse?** <br/>
+* **De ce nu folosim un formular pentru rezervarea curselor?** <br/>
   * Vrem să încurajăm interacțiunea socială directă între șofer și pasagerul potențial, nu să o limităm
-  * Dacă se folosește un formular, șoferul ar putea fi nevoit să inițieze un refuz dacă se simte inconfortabil cu pasagerul. Contactul direct permite șoferului să evalueze și să răspundă în condițiile lui, făcând procesul mai personal și mai atent
+  * Dacă se folosește un formular, șoferul ar putea fi nevoit să inițieze un refuz dacă se simte inconfortabil cu pasagerul, dar dacă vecinul stabilește contactul direct, asta îi permite șoferului să evalueze, să pună întrebări și să răspundă în felul său, făcând procesul mai personal și mai respectuos
   * Complică UX-ul și codul
 
 * **Ce părere ai despre a avea formulare în mai multe limbi pentru șoferi?**
