@@ -56,7 +56,7 @@ const I18N = {
       return [line1, line2, line3].join("\n")
     },
 
-    UNSUBSCRIBE: "unsubscribe"
+    UNSUBSCRIBE: "Unsubscribe"
   },
   ro: {
     FORM_TITLE: "[Drumuri cu Vecinii] Oferă o cursă",
@@ -92,6 +92,6 @@ const I18N = {
       return [line1, line2, line3].join("\n")
     },
 
-    UNSUBSCRIBE: "dezabonare"
+    UNSUBSCRIBE: "Dezabonare"
   }
 }

@@ -124,7 +124,7 @@ class AutomaticEmailUnsubscribe {
    * The email thread is deleted to remove noise from the inbox
    */
   fn() {
-    const unsubscribeWords = Object.keys(I18N).map((key) => I18N[key].UNSUBSCRIBE)
+    const unsubscribeWords = Object.keys(I18N).map((key) => I18N[key].UNSUBSCRIBE.toLowerCase())
 
     const scriptProperties = PropertiesService.getScriptProperties()
     const replyToEmail = scriptProperties.getProperty(PROPERTY.REPLY_TO_EMAIL)
@@ -134,7 +134,7 @@ class AutomaticEmailUnsubscribe {
 
       thread.getMessages().forEach((message) => {
         const userRepliedWithUnsubscribeWord = unsubscribeWords.some((unsubscribeWord) => {
-          message.getPlainBody().startsWith(unsubscribeWord)
+          message.getPlainBody().toLowerCase().startsWith(unsubscribeWord)
         })
 
         if (userRepliedWithUnsubscribeWord) {
