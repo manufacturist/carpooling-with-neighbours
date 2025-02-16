@@ -64,7 +64,7 @@ Ai nevoie doar de adresele de email ale celor interesați.
 
 4. Există un aspect social. Trebuie să contactezi vecinul șofer direct pentru a rezerva un loc
 
-5. Este o metodă simplă de a reduce poluarea și de a te conecta cu vecinii
+5. Este o metodă simplă pentru a reduce poluarea și de a te conecta cu vecinii
 
 :warning: 100 este limita de email-uri care pot fi trimise într-o zi pentru conturile gratuite, iar 1500 pentru conturile workspace
 
@@ -72,8 +72,8 @@ Ai nevoie doar de adresele de email ale celor interesați.
 
 ## Instalare
 
-Pentru a instala, vei avea nevoie de un cont Google. Descarcă codul și alege una dintre următoarele metode:
-* Cel mai simplu mod este să copiezi proiectul din [Google Apps Script](https://script.google.com/home) în contul tău de Google
+Pentru a instala, vei avea nevoie de un cont Google:
+* Cel mai simplu mod este să copiezi proiectul public din [Google Apps Script](https://script.google.com/home), în contul tău
 * Alternativ, dacă ești o persoană tehnică, poți folosi [clasp](https://github.com/google/clasp)
 
 Acuma, pe pagina proiectului tău:
@@ -91,13 +91,19 @@ Acuma, pe pagina proiectului tău:
    * Formularul pentru a oferi o cursă (Form)
    * Fișierul cu ofertele de curse (Sheet), unde vor fi salvate răspunsurile formularului
    * Un trigger care setează numărul de telefon în fișierul de utilizatori, atunci când îl adaugă șoferul în formular
-   * Un trigger care trimite un email utilizatorilor în fiecare duminică, cândva în fereastra 18:00 - 19:00
+   * Un trigger care trimite un email destinatarilor în fiecare duminică, cândva în fereastra 18:00 - 19:00
 
-Asta e tot. Singura ta sarcină rămasă este să populezi manual lista de utilizatori. Pentru fiecare utilizator va trebui să introduci un email-ul și limba dorită de către acesta `[en, ro]`; opțional mai poți adăuga numele, numărul de telefon și o referință de identificare pentru șofer (apartament / birou).
+5. Modul de dezabonarea utilizat este cel `manual`. Dacă vrei ca vecinii tăi să se poată dezabona automat, răspunzând cu 'dezabonare' la email-ul primit, atunci:
+   * În setările proiectului (⚙️), dute în josul paginii, și apasă pe butonul de editare a proprietăților script-ului
+   * Modifică proprietatea UNSUBSCRIBE_MODE, din `manual` în `auto` și salvează
+   * Deschide fișierul `src/unsubscribe.js` și rulează funcția `activateAutomaticEmailUnsubscribeTrigger`
+   * Aceasta va activa o verificare automată (odată la 30 de minute), care caută email-uri de dezabonare și șterge abonații din lista de utilizatori
+
+Asta e tot. Singura ta sarcină rămasă este să populezi manual lista de utilizatori. Pentru fiecare vecin interesat va trebui să introduci email-ul său și limba dorită de către acesta `[en, ro]`; opțional mai poți adăuga numele, numărul de telefon și o referință de identificare pentru șofer (apartament / birou).
 
 Numele este util pentru a face email-ul mai personalizat și pentru a reduce șansa ca acesta să ajungă la spam. Numărul de telefon este necesar pentru șoferi, iar referința opțională îi ajută pe destinatarii email-ului să înțeleagă mai bine cine este șoferul.
 
-Dacă ceva se strică, mult noroc <3 *"Țesutul digital fragil care ține această soluție laolaltă este rupt. Distruge-l și reconstruiește-l."* Salvează undeva datele din fișierul ce conține utilizatorii, și dezinstalează soluția. Va trebui să deschizi fișierul `src/uninstall.gs` și să rulezi (`▷`) funcția de `uninstall`. După care, reia de la pasul 2.
+Dacă ceva se strică, mult noroc <3 *"Țesutul digital fragil care ține această soluție laolaltă este rupt. Distruge-l și reconstruiește-l."* Salvează undeva datele din fișierul ce conține utilizatorii, și dezinstalează soluția. Va trebui să deschizi fișierul `src/uninstall.gs` și să rulezi (`▷`) funcția de `uninstall`. După care, reia procesul de instalare începând cu pasul 2.
 
 Domeniile de autorizare Google utilizate de către `Drumuri cu Vecinii`:
 | Domeniul OAuth 2.0                                 | Scop | Utilizare |
@@ -118,7 +124,7 @@ Clonează acest repo și însușește-ți-l. Nu există o soluție universală. 
 
 Deschide proiectul în editorul preferat și instalează pachetul (`npm install`). Astfel vei avea sugestii când codezi. Folosește [clasp](https://github.com/google/clasp)!
 
-Dacă faci o schimbare care aduce un beneficiu comunității tale și consideri că i-ar putea ajuta și pe alții, nu ezita să deschizi un PR, dar ține cont de următoarele:
+Dacă faci o schimbare care aduce un beneficiu comunității tale și consideri că i-ar putea ajuta și pe alții, nu ezita să deschizi un PR, dar ține cont de următoarele te rog:
 1. UX-ul trebuie să rămână simplu și minimalist
 2. Dacă este prea personalizat pentru comunitatea ta și nu i-ar ajuta pe alții, poate că o extensie ar fi mai utilă
 
