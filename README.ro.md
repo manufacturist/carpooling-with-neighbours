@@ -82,11 +82,11 @@ Acuma, pe pagina proiectului tău:
 
 2. Tot în stânga paginii ai simbolul de editor `< >`. Apasă pe el și deschide fișierul `src/main.gs`
 
-3. În fișierul acesta, va trebui să îți alegi limba dorită prin modificarea rândului 2, după care să salvezi modificarea (Click pe 💾 / Ctrl + S / CMD + S): <br/>
+3. În fișierul acesta, va trebui să îți alegi limba dorită prin modificarea rândului 2, iar apoi salvează modificarea prin click pe 💾, sau Ctrl + S sau CMD + S. Variante posibile: <br/>
    `ro` - Română <br/>
    `en` - Engleză
 
-4. Tot în acest fișier, ultimul pas este să rulăm funcția `main` prin apăsarea butonului `▷`. Aceasta va crea:
+4. Tot în acest fișier, trebuie să rulăm funcția `main` prin apăsarea butonului `▷`. Aceasta va crea:
    * Fișierul de utilizatori (Sheet)
    * Formularul pentru a oferi o cursă (Form)
    * Fișierul cu ofertele de curse (Sheet), unde vor fi salvate răspunsurile formularului
