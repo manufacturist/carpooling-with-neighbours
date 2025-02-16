@@ -113,9 +113,63 @@ class UpdatePhoneNumber {
   }
 }
 
+
+class AutomaticEmailUnsubscribe {
+
+  /**
+   * 1. Searches Gmail for emails replies to <YOUR_EMAIL>+carpooling-unsubscribe@gmail.com
+   * 2. Checks if they start with the unsubscribe words in the i18n dictionaries
+   * 3. Removes the user from the users spreadsheet and deleted the email thread
+   * 
+   * The email thread is deleted to remove noise from the inbox
+   */
+  fn() {
+    const unsubscribeWords = Object.keys(I18N).map((key) => I18N[key].UNSUBSCRIBE)
+
+    const scriptProperties = PropertiesService.getScriptProperties()
+    const replyToEmail = scriptProperties.getProperty(PROPERTY.REPLY_TO_EMAIL)
+
+    GmailApp.search(`to:${replyToEmail}`).forEach((thread) => {
+      let userEmail = undefined
+
+      thread.getMessages().forEach((message) => {
+        const userRepliedWithUnsubscribeWord = unsubscribeWords.some((unsubscribeWord) => {
+          message.getPlainBody().startsWith(unsubscribeWord)
+        })
+
+        if (userRepliedWithUnsubscribeWord) {
+          userEmail = AutomaticEmailUnsubscribe.extractEmail(message.getFrom())
+        }
+      })
+
+      if (userEmail) {
+        Services.userService.deleteUserByEmail(userEmail)
+
+        thread.markRead()
+        thread.moveToTrash()
+      }
+    })
+  }
+
+  activateTrigger() {
+    ScriptApp.newTrigger('Triggers.automaticEmailUnsubscribe.fn')
+      .timeBased()
+      .everyMinutes(30)
+      .create()
+
+    Logger.log("Activated Sunday email trigger")
+  }
+
+  static extractEmail(sender) {
+    const match = sender.match(/<(.+)>/)
+    return match ? match[1] : sender
+  }
+}
+
 const Triggers = {
   sundayRideOffersSummary: new SundayRideOffersSummary(),
-  updatePhoneNumber: new UpdatePhoneNumber()
+  updatePhoneNumber: new UpdatePhoneNumber(),
+  automaticEmailUnsubscribe: new AutomaticEmailUnsubscribe()
 }
 
 function testRideOfferSummaryFn() {
