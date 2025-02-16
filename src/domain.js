@@ -28,8 +28,7 @@ User.DATA_ROW = Object.freeze({
   LANGUAGE: 1,
   NAME: 2,
   PHONE_NUMBER: 3,
-  REFERENCE: 4,
-  ID: 5
+  REFERENCE: 4
 })
 
 User.COLUMNS = Object.freeze({
@@ -37,6 +36,5 @@ User.COLUMNS = Object.freeze({
   LANGUAGE: 2,
   NAME: 3,
   PHONE_NUMBER: 4,
-  REFERENCE: 5,
-  ID: 6
+  REFERENCE: 5
 })
