@@ -39,8 +39,8 @@ Dacă o cursă ți se potrivește, contactează șoferul pentru a rezerva un loc
 
 Poți oferi și tu o cursă aici: https://forms.gle/ABCDEFGHIJKLMNOPQ
 
-Dacă nu mai dorești să primești aceste actualizări, te poți dezabona de 
-aici: https://rb.gy/123456?unsubscribe=00000000-0000-0000-0000-000000000000
+Dacă nu mai dorești să primești aceste actualizări, spune-ne răspunzând 
+la acest email și te vom dezabona manual.
 
 Cu bine,
 Echipa Drumuri cu Vecinii
