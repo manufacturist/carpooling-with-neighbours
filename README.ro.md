@@ -65,6 +65,7 @@ Ai nevoie doar de adresele de email ale celor interesați.
 <br/>
 
 <sup>(1)</sup> Șoferii trebuie să aibă un cont Google verificat pentru a oferi curse prin formular
+
 <sup>(2)</sup> 100 este cota zilnică de e-mailuri pentru conturile gratuite și 1500 pentru cele Workspace
 
 <br/>

@@ -65,6 +65,7 @@ You only need the email addresses of those interested.
 <br/>
 
 <sup>(1)</sup> Drivers must have a verified Google account to offer rides through the form
+
 <sup>(2)</sup> 100 is the daily email quota for free accounts and 1500 for workspace ones
 
 <br/>
