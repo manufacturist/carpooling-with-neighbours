@@ -72,21 +72,21 @@ You only need the email addresses of those interested.
 
 ## Setup
 
-To get started, you’ll need to decide whether to use a personal Google account or a third-party account. Note that emails will be sent using your email address, with a plus address (`YOUR_EMAIL+carpooling@gmail.com`).  
+To get started, you’ll need to decide whether to use a personal Google account or a secondary account. Note that emails will be sent using your email address, with a plus address (`YOUR_EMAIL+carpooling@gmail.com`).
 
-### To install:
-* The easiest way is to copy the public project from [Google Apps Script](https://script.google.com/home) into your account.  
-* Alternatively, if you’re tech-savvy, you can use [clasp](https://github.com/google/clasp) on the downloaded project.  
+To install:
+* The easiest way is to copy the public project from [Google Apps Script](https://script.google.com/home) into your account
+* Alternatively, if you’re tech-savvy, you can use [clasp](https://github.com/google/clasp) on the downloaded project
 
 Now, on your project page:  
 
 1. Click the project settings icon '⚙️' on the left side of the page and choose your desired time zone
 
-2. Also on the left, click the code editor symbol `< >` and open the `src/main.gs` file.  
+2. Also on the left, click the code editor symbol `< >` and open the `src/main.gs` file.
 
-3. In this file, choose your desired language (spoken by most recipients) by modifying line 2, then save the change by clicking 💾, or using Ctrl + S or CMD + S. Possible options:  
-   `ro` - Romanian  
-   `en` - English  
+3. In this file, choose your desired language (spoken by most recipients) by modifying line 2, then save the change by clicking 💾, or using Ctrl + S or CMD + S. Possible options: <br/>
+   `en` - English <br/>
+   `ro` - Romanian
 
 4. Still in this file, run the `main` function by pressing the `▷` button. This will create:  
    * The users file (Spreadsheet)  

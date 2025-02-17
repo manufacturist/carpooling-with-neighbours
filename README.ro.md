@@ -72,7 +72,7 @@ Ai nevoie doar de adresele de email ale celor interesați.
 
 ## Instalare
 
-Pentru început, va trebui să decizi dacă vrei să folosești un cont personal de Google sau un cont terț. De știut că se vor trimite email-uri cu adresa ta de email, folosind adresare cu plus (`EMAILUL_TĂU+carpooling@gmail.com`). 
+Pentru început, va trebui să decizi dacă vrei să folosești un cont personal de Google sau un cont secundar. De știut că se vor trimite email-uri cu adresa ta de email, folosind adresare cu plus (`EMAILUL_TĂU+carpooling@gmail.com`).
 
 Pentru a instala:
 * Cel mai simplu mod este să copiezi proiectul public din [Google Apps Script](https://script.google.com/home), în contul tău
