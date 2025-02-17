@@ -80,7 +80,7 @@ To get started, you’ll need to decide whether to use a personal Google account
 
 Now, on your project page:  
 
-1. Click the project settings icon '⚙️' on the left side of the page and choose your desired time zone. Romania is on GMT+2 (Europe/Bucharest).  
+1. Click the project settings icon '⚙️' on the left side of the page and choose your desired time zone
 
 2. Also on the left, click the code editor symbol `< >` and open the `src/main.gs` file.  
 
