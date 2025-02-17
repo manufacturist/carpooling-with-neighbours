@@ -31,7 +31,7 @@ Bună Veta,
 
 Aici sunt cursele disponibile pentru săptămâna viitoare:
 
-🚗 Hotelul Vega (la Gogu a lui Pupăză) | miercuri, 20.08, 13:37
+🚘 Hotelul Vega (la Gogu a lui Pupăză) | miercuri, 20.08, 13:37
 Șofer: Nea Mărin (Juvete, 0712345678)
 Plecare: Băilești | Locuri: 3
 

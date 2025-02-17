@@ -31,7 +31,7 @@ Hey Sally Carrera,
 
 Here are the available rides for next week:
 
-🚗 California International Speedway | Wednesday, Aug 20, 13:37 PM
+🚘 California International Speedway | Wednesday, Aug 20, 13:37 PM
 Driver: Lightning McQueen (no. 42, +0123456789)
 Meet: Mater's Garage (Radiator Springs) | Seats: 3
 
