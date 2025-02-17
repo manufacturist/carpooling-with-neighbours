@@ -1,8 +1,8 @@
 [![Licență: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 
-[:uk: English](./README.md) | [:romania: Română](./README.ro.md)
+[English](./README.md) | [Română](./README.ro.md)
 
-# Drumuri cu vecinii
+# Drumuri cu Vecinii
 
 O soluție cu zero costuri și interacțiune minimă pentru a face drumuri cu vecinii (carpooling), folosind Google Apps Script.
 
@@ -46,43 +46,44 @@ Cu bine,
 Echipa Drumuri cu Vecinii
 ```
 
-Pentru a utiliza această soluție, cineva din comunitate / cartier trebuie să îndeplinească rolul de Admin. Adminul trebuie să adauge manual utilizatorii într-un fișier Google de tip "Sheet". Doar cei adăugați în fișierul respectiv pot primi email-ul de duminică și pot oferi curse prin formular.
+Pentru a utiliza această soluție, cineva din comunitate / cartier trebuie să îndeplinească rolul de Admin. Adminul trebuie să adauge manual utilizatorii într-un fișier Google de tip "Sheet". Doar cei adăugați în fișierul respectiv pot primi email-ul de duminică sau pot oferi curse prin formular.
 
 Ai nevoie doar de adresele de email ale celor interesați.
 
-💡 Pentru a avea mai mult succes cu această soluție, îți recomand să începi cu un grup mic de vecini. După ce o testați împreună și vedeți cum merge, puteți da anunțul în comunitate: "Salutare, suntem un grup de X vecini care am încercat [...]"
+💡 Pentru a avea mai mult succes cu această soluție, îți recomand să începi cu un grup mic de vecini. După ce o testați împreună și vedeți cum merge, puteți da anunțul în comunitate: `Salutare, suntem un grup de X vecini care am încercat [...]`
 
 <br/>
 
 ## Beneficii
 
-1. Costuri zero! Fără instalări de aplicații sau înregistrări de conturi (cu excepția șoferilor, dacă nu au cont de Google)
+1. Costuri zero! Fără instalări de aplicații sau înregistrări de conturi (cu excepția șoferilor<sup>(1)</sup>)
 
-2. Funcționează cu până la 100 de vecini (email-ul de duminică)
+2. Funcționează cu până la 100<sup>(2)</sup> de vecini (email-ul de duminică)
 
-3. Șoferii trebuie să aibă un cont de Google **verificat**, pentru a putea completa formularul
+3. Este un mod simplu de socializa cu vecinii tăi și de a reduce traficul din zona ta
 
-4. Există un aspect social. Trebuie să contactezi vecinul șofer direct pentru a rezerva un loc
+<br/>
 
-5. Este o metodă simplă pentru a reduce poluarea și de a te conecta cu vecinii
-
-:warning: 100 este limita de email-uri care pot fi trimise într-o zi pentru conturile gratuite, iar 1500 pentru conturile workspace
+<sup>(1)</sup> Șoferii trebuie să aibă un cont Google verificat pentru a oferi curse prin formular
+<sup>(2)</sup> 100 este cota zilnică de e-mailuri pentru conturile gratuite și 1500 pentru cele Workspace
 
 <br/>
 
 ## Instalare
 
-Pentru a instala, vei avea nevoie de un cont Google:
+Pentru început, va trebui să decizi dacă vrei să folosești un cont personal de Google sau un cont terț. De știut că se vor trimite email-uri cu adresa ta de email, folosind adresare cu plus (`EMAILUL_TĂU+carpooling@gmail.com`). 
+
+Pentru a instala:
 * Cel mai simplu mod este să copiezi proiectul public din [Google Apps Script](https://script.google.com/home), în contul tău
-* Alternativ, dacă ești o persoană tehnică, poți folosi [clasp](https://github.com/google/clasp)
+* Alternativ, dacă ești o persoană tehnică, poți folosi [clasp](https://github.com/google/clasp) pe proiectul descărcat
 
 Acuma, pe pagina proiectului tău:
 
-1. Apasă pe simbolul de setările proiectului '⚙️' din stânga paginii și alege fusul orar dorit
+1. Apasă pe simbolul pentru setările proiectului '⚙️' din stânga paginii și alege fusul orar dorit. România este pe GMT+2 (Europe/Bucharest)
 
-2. Tot în stânga paginii ai simbolul de editor `< >`. Apasă pe el și deschide fișierul `src/main.gs`
+2. Tot în stânga paginii ai simbolul pentru editor `< >`. Apasă pe el și deschide fișierul `src/main.gs`
 
-3. În fișierul acesta, va trebui să îți alegi limba dorită prin modificarea rândului 2, iar apoi salvează modificarea prin click pe 💾, sau Ctrl + S sau CMD + S. Variante posibile: <br/>
+3. În fișierul acesta, va trebui să îți alegi limba dorită (cea vorbita de majoritatea destinatarilor) prin modificarea rândului 2, iar apoi salvează modificarea prin click pe 💾, sau Ctrl + S sau CMD + S. Variante posibile: <br/>
    `ro` - Română <br/>
    `en` - Engleză
 
@@ -114,7 +115,7 @@ Domeniile de autorizare Google utilizate de către `Drumuri cu Vecinii`:
 | `https://www.googleapis.com/auth/userinfo.email`   | Vede adresa principală a contului tău de Google | Pentru ca destinatarii să poată răspundă la email-ul de duminică (pentru dezabonare) către adresa `EMAILUL_TĂU+carpooling-unsubscribe@gmail.com` |
 | `https://www.googleapis.com/auth/script.scriptapp` | Executare de cod în absența ta | Folosit pentru a trimite automat email-ul de duminică |
 | `https://www.googleapis.com/auth/script.send_mail` | Trimitere de email în numele tău | Folosit pentru a putea trimite email-ul de duminică |
-| `https://mail.google.com/`                         | Acces la Gmail | Folosit pentru a verifica dacă pe adresa menționată anterior, au venit răspunsuri de dezabonare de la destinatari (pentru modul "auto" de dezabonare)  |
+| `https://mail.google.com/`                         | Acces la Gmail | Folosit pentru a verifica dacă pe adresa menționată anterior, au venit răspunsuri de dezabonare de la destinatari (doar pentru modul "auto" de dezabonare)  |
 
 <br/>
 
@@ -137,7 +138,7 @@ Dacă vrei să faci o contribuție rapidă, poți adăuga suport pentru limba ta
 ## Întrebări frecvente
 
 * **De ce nu folosim un formular prin care vecinul se poate abona ușor la email-urile de informare?** <br/>
-  * Încercăm să limităm accesul la datele personale ale șoferilor, la minimul necesar
+  * Verificăm fiecare utilizator individual deoarece gestionăm date personale. Accesul trebuie limitat doar celor care fac parte din comunitate
 
 * **De ce nu folosim un formular pentru rezervarea curselor?** <br/>
   * Vrem să încurajăm interacțiunea socială directă între șofer și pasagerul potențial, nu să o limităm
@@ -152,6 +153,6 @@ Dacă vrei să faci o contribuție rapidă, poți adăuga suport pentru limba ta
 
 ## Inspirație
 
-Provocarea a fost "Cum pot crea o soluție de carpooling care să funcționeze pentru orice comunitate cu un efort minim și costuri zero?" Am creat această soluție după ce un vecin m-a dus cu mașina la serviciu (mulțumesc, Roli!). Sper să te inspire să cauți simplitatea. Simplu este greu.
+Provocarea a fost "Cum pot crea o soluție de carpooling care să funcționeze pentru orice comunitate cu un efort minim și costuri zero?". Am creat această soluție după ce un vecin m-a dus cu mașina la serviciu (mulțumesc, Roli!). Sper să te inspire să cauți simplitatea. Simplu este greu.
 
 Dacă vrei să afli mai multe despre mine sau să-mi susții munca, poți vizita pagina mea de [GitHub](https://github.com/sponsors/manufacturist).
