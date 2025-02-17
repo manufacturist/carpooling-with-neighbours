@@ -71,11 +71,11 @@ class SundayRideOffersSummary {
     const rides = nextWeekRides.map(ride => {
       const rideDriver = usersByEmails.get(ride.email)
       const rideDescription = I18N[user.language].EMAIL_BODY_RIDE_TEMPLATE_FN(ride, rideDriver)
-
+      SitesApp
       return rideDescription
     })
 
-    template.name = user.name
+    template.name = user.name ? user.name : I18N[user.language].NEIGHBOUR_VOCATIVE
     template.rides = rides.join("\n\n")
 
     if (unsubscribeMessage) template.unsubscribeMessage = unsubscribeMessage

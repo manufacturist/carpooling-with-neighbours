@@ -56,6 +56,7 @@ const I18N = {
       return [line1, line2, line3].join("\n")
     },
 
+    NEIGHBOUR_VOCATIVE: "neighbour",
     UNSUBSCRIBE: "Unsubscribe"
   },
   ro: {
@@ -92,6 +93,7 @@ const I18N = {
       return [line1, line2, line3].join("\n")
     },
 
+    NEIGHBOUR_VOCATIVE: "vecine",
     UNSUBSCRIBE: "Dezabonare"
   }
 }
