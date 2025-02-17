@@ -13,7 +13,7 @@ class SundayRideOffersSummary {
     const replyToEmail = Session.getEffectiveUser().getEmail().replace('@', '+carpooling-unsubscribe@')
 
     const usersByEmails = Services.userService.fetchUsersByEmailsMap()
-    const nextWeekRides = Services.rideOfferService.fetchValidatedNextWeekRideOffers(usersByEmails)
+    const nextWeekRides = Services.rideOfferService.fetchSorteddNextWeekRideOffers(usersByEmails)
 
     if (nextWeekRides.length > 0) { Logger.log(`There are ${nextWeekRides.length} rides available`) } else {
       return Logger.log('No available rides to send, therefore no emails sent')
