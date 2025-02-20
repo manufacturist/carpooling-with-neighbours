@@ -1,5 +1,15 @@
 {
   "devDependencies": {
-    "@types/google-apps-script": "^1.0.93"
+    "@tailwindcss/cli": "^4.0.7",
+    "@types/google-apps-script": "^1.0.93",
+    "autoprefixer": "^10.4.20",
+    "tailwindcss": "^4.0.7"
+  },
+  "scripts": {
+    "build-css": "npx tailwindcss -i tailwind.css -o build/style.css",
+    "embed-css": "node tailwind.postprocess.js",
+    "css": "npm run build-css && npm run embed-css",
+    "build-and-push": "npm run css && clasp push",
+    "update": "DEPLOY=$(clasp deployments | tail -n 1 | awk '{print $2}') && npm run build-and-push && clasp deploy -i $DEPLOY"
   }
 }

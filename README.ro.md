@@ -31,9 +31,17 @@ Bună Veta,
 
 Aici sunt cursele disponibile pentru săptămâna viitoare:
 
-🚘 Hotelul Vega (la Gogu a lui Pupăză) | miercuri, 20.08, 13:37
+🚘 Hotelul Vega (la Gogu a lui Pupăză) | Miercuri, 20.08, 13:37
 Șofer: Nea Mărin (Juvete, 0712345678)
 Plecare: Băilești | Locuri: 3
+
+🚘 Duc polistirenul la colectat | Sâmbătă, 23.08, 12:00 AM
+Șofer: Dorel (ap. 42, 0712345678)
+Plecare: În fața blocului | Locuri: 4
+
+🚘 IKEA | Duminică, 24.08, 10:00 AM
+Șofer: Bunica (0712345678)
+Locuri: 2
 
 Dacă o cursă ți se potrivește, contactează șoferul pentru a rezerva un loc.
 
@@ -113,7 +121,7 @@ Domeniile de autorizare Google utilizate de către `Drumuri cu Vecinii`:
 | `https://www.googleapis.com/auth/spreadsheets`     | Interacțiunea cu fișiere `Spreadsheet` | Crearea de fișiere tabelare: utilizatori și oferte de curse |
 | `https://www.googleapis.com/auth/forms`            | Interacțiunea cu fișiere `Form` | Crearea formularului prin care se oferă o cursă |
 | `https://www.googleapis.com/auth/drive.file`       | Creeare de fișiere noi și interacțiunea cu acestea | Opțiunea de dezinstalare (uninstall) |
-| `https://www.googleapis.com/auth/userinfo.email`   | Vede adresa principală a contului tău de Google | Pentru ca destinatarii să poată răspundă la email-ul de duminică (pentru dezabonare) către adresa `EMAILUL_TĂU+carpooling-unsubscribe@gmail.com` |
+| `https://www.googleapis.com/auth/userinfo.email`   | Vede adresa principală a contului tău de Google | Pentru ca destinatarii să poată răspundă la email-ul de duminică (pentru dezabonare) către adresa `EMAILUL_TĂU+carpooling@gmail.com` |
 | `https://www.googleapis.com/auth/script.scriptapp` | Executare de cod în absența ta | Folosit pentru a trimite automat email-ul de duminică |
 | `https://www.googleapis.com/auth/script.send_mail` | Trimitere de email în numele tău | Folosit pentru a putea trimite email-ul de duminică |
 | `https://mail.google.com/`                         | Acces la Gmail | Folosit pentru a verifica dacă pe adresa menționată anterior, au venit răspunsuri de dezabonare de la destinatari (doar pentru modul "auto" de dezabonare)  |

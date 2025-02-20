@@ -1,0 +1,6 @@
+tailwind.config.js
+tailwind.css
+tailwind.postprocess.js
+
+node_modules/**/*.js
+node_modules/**/*.ts

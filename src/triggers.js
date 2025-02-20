@@ -4,16 +4,16 @@ class SundayRideOffersSummary {
    * Sends an email to a list of users using the appropriate language configuration for each user
    */
   fn() {
+    Logger.log(`Current email quota: ${MailApp.getRemainingDailyQuota()}`)
+
+    const replyToEmail = Session.getEffectiveUser().getEmail().replace('@', '+carpooling@')
+
     const scriptProperties = PropertiesService.getScriptProperties()
     const offerRideFormUrl = scriptProperties.getProperty(PROPERTY.OFFER_RIDE_FORM_URL)
     const unsubscribeMode = scriptProperties.getProperty(PROPERTY.UNSUBSCRIBE_MODE)
 
-    Logger.log(`Current email quota: ${MailApp.getRemainingDailyQuota()}`)
-
-    const replyToEmail = Session.getEffectiveUser().getEmail().replace('@', '+carpooling-unsubscribe@')
-
     const usersByEmails = Services.userService.fetchUsersByEmailsMap()
-    const nextWeekRides = Services.rideOfferService.fetchSorteddNextWeekRideOffers(usersByEmails)
+    const nextWeekRides = Services.rideOfferService.fetchNextWeekRideOffers(usersByEmails)
 
     if (nextWeekRides.length > 0) { Logger.log(`There are ${nextWeekRides.length} rides available`) } else {
       return Logger.log('No available rides to send, therefore no emails sent')
@@ -22,8 +22,8 @@ class SundayRideOffersSummary {
     const users = ([...usersByEmails.values()])
 
     const templates = {
-      en: HtmlService.createTemplateFromFile('template/rideOffers.en'),
-      ro: HtmlService.createTemplateFromFile('template/rideOffers.ro')
+      en: HtmlService.createTemplateFromFile('src/email/rideOffers.en'),
+      ro: HtmlService.createTemplateFromFile('src/email/rideOffers.ro')
     }
 
     templates.en.offerRideFormUrl = offerRideFormUrl
@@ -117,7 +117,7 @@ class UpdatePhoneNumber {
 class AutomaticEmailUnsubscribe {
 
   /**
-   * 1. Searches Gmail for emails replies to <YOUR_EMAIL>+carpooling-unsubscribe@gmail.com
+   * 1. Searches Gmail for emails replies to <YOUR_EMAIL>+carpooling@gmail.com
    * 2. Checks if they start with the unsubscribe words in the i18n dictionaries
    * 3. Removes the user from the users spreadsheet and deleted the email thread
    * 

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="<?= lang ?>">
+
+<head>
+  <?!= HtmlService.createHtmlOutputFromFile('src/webapp/index.style.gen').getContent() ?>
+</head>
+
+<body class="w-full bg-gray-50 p-6">
+  <div class="overflow-x-auto max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6">
+    <h1 class="text-2xl font-medium mb-8 md:mb-4 text-center md:text-start text-balance">
+      <?= tripsForNextDays ?>
+    </h1>
+    <div class="flex flex-col gap-8 md:gap-4 justify-self-center md:justify-self-auto">
+      <div class="hidden md:flex gap-4 w-full font-semibold border-b-1 border-gray-300 px-2 py-2 my-2">
+        <div class="flex-1">
+          <?= departureTime ?>
+        </div>
+        <div class="flex-1">🚘
+          <?= destination ?>
+        </div>
+        <div class="flex-1">
+          <?= meetingPoint ?>
+        </div>
+        <div class="flex-[0_1_140px]">
+          <?= phoneNumber ?>
+        </div>
+      </div>
+
+      <?!= rides ?>
+    </div>
+  </div>
+
+  <div id="language-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+    <div class="bg-white p-6 rounded-2xl shadow-xl text-center">
+      <div class="flex space-x-4 justify-center">
+        <button onclick="setLanguage('en')" class="px-4 py-2 text-white rounded-lg hover:bg-blue-600">
+          English
+        </button>
+        <button onclick="setLanguage('ro')" class="px-4 py-2 text-white rounded-lg hover:bg-blue-600">
+          Română
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const isLanguageMissing = !localStorage.getItem('language')
+
+    if (isLanguageMissing) {
+      document.getElementById('language-modal').classList.remove('hidden')
+    }
+
+    function setLanguage(language) {
+      localStorage.setItem('language', language)
+      document.getElementById('language-modal').classList.add('hidden')
+    }
+  </script>
+</body>
+
+</html>
