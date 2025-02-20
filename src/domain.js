@@ -1,9 +1,9 @@
 class RideOffer {
-  constructor(timestamp, email, destination, when, meetingPoint, seats) {
+  constructor(timestamp, email, destination, departureTimestamp, meetingPoint, seats) {
     this.timestamp = timestamp
     this.email = email
     this.destination = destination
-    this.when = when
+    this.departureTimestamp = departureTimestamp
     this.meetingPoint = meetingPoint
     this.seats = seats
 

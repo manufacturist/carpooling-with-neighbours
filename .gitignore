@@ -1,10 +1,11 @@
+# project
+build/*
+
 # Node.js dependencies
 node_modules/
-package-lock.json
 
 # clasp files
 .clasp.json
-.claspignore
 
 # Logs and temp files
 npm-debug.log*

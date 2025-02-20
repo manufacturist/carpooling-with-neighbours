@@ -1,0 +1,36 @@
+<div class="flex flex-col gap-1 md:gap-4 md:flex-row w-full px-2">
+  <div class="hidden md:block md:flex-1">
+    <span class="md:inline-block">
+      <?=day?>,
+    </span>
+    <span class="md:inline-block">
+      <?=date?>,
+    </span>
+    <span class="md:inline-block">
+      <?=time?>
+    </span>
+  </div>
+
+  <div class="flex-1 text-balance">
+    <span>
+      <span class="md:hidden">🚘 </span>
+      <?= destination ?>
+    </span>
+
+    <br />
+
+    <i class="md:hidden">
+      <?= departureTimestamp ?>
+    </i>
+  </div>
+
+  <div class="flex-1">
+    <?= meetingPoint ?>
+  </div>
+
+  <div class="flex-1 md:flex-[0_1_140px]">
+    <a href="tel:<?= phoneNumber ?>" class="text-blue-600 hover:underline">
+      <?= phoneNumber ?>
+    </a>
+  </div>
+</div>

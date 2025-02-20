@@ -79,12 +79,12 @@ class RideOfferService {
    * A list of sorted and validated ride offers for the upcomming week. Validated implies 
    * here that if the drivers that completed the form are not mentioned in the "Verified 
    * Users" sheet, that ride offer will be filtered out. The ride offers are sorted by 
-   * the departure time.
+   * departure time.
    * 
    * @param {Map<Email, User>} usersByEmails - A map of email keys and User values
    * @returns {Array<RideOffer>} An array of ride offers
    */
-  fetchSortedNextWeekRideOffers(usersByEmails) {
+  fetchNextWeekRideOffers(usersByEmails) {
     const validRideOffers = this.fetchAllUpcomingRideOffers().filter(offer => usersByEmails.has(offer.email))
 
     const now = new Date()
@@ -100,10 +100,37 @@ class RideOfferService {
     nextSunday.setHours(23, 59, 59, 999)
 
     const activeRideOffers = validRideOffers.filter(activeRideOffer => {
-      return activeRideOffer.when >= nextMonday && activeRideOffer.when <= nextSunday
+      return activeRideOffer.departureTimestamp >= nextMonday && activeRideOffer.departureTimestamp <= nextSunday
     })
 
-    return activeRideOffers.sort((a, b) => a.when - b.when)
+    return activeRideOffers.sort((a, b) => a.departureTimestamp - b.departureTimestamp)
+  }
+
+  /**
+     * A list of sorted and validated ride offers for the next 7 days. Validated implies 
+     * here that if the drivers that completed the form are not mentioned in the "Verified 
+     * Users" sheet, that ride offer will be filtered out. The ride offers are sorted by 
+     * departure time.
+     * 
+     * @param {Map<Email, User>} usersByEmails - A map of email keys and User values
+     * @returns {Array<RideOffer>} An array of ride offers
+     */
+  fetchNext7DaysRideOffers(usersByEmails) {
+    const validRideOffers = this.fetchAllUpcomingRideOffers().filter(offer => usersByEmails.has(offer.email))
+
+    const now = new Date()
+    const currentDay = now.getDay()
+    const daysToMonday = (currentDay === 0) ? 1 : (7 - currentDay + 1)
+
+    const after7Days = new Date()
+    after7Days.setDate(now.getDate() + daysToMonday)
+    after7Days.setHours(23, 59, 59, 999)
+
+    const activeRideOffers = validRideOffers.filter(activeRideOffer => {
+      return activeRideOffer.departureTimestamp >= now && activeRideOffer.departureTimestamp <= after7Days
+    })
+
+    return activeRideOffers.sort((a, b) => a.departureTimestamp - b.departureTimestamp)
   }
 
   /**

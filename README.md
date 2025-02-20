@@ -35,7 +35,15 @@ Here are the available rides for next week:
 Driver: Lightning McQueen (no. 42, +0123456789)
 Meet: Mater's Garage (Radiator Springs) | Seats: 3
 
-If any of them work for you, just reach out to the driver to save your spot.
+🚘 Brunch @ Central Perk Coffeehouse | Saturday, Aug 23, 12:00 AM
+Driver: Joey Tribianni (Apt. 4, +0123456789)
+Meet: Downstairs | Seats: 4
+
+🚘 IKEA shopping | Sunday, Aug 24, 10:00 AM
+Driver: Ingvar Kamprad (+0123456789)
+Seats: 2
+
+If any of them work for you, just reach out to the driver to reserve a spot.
 
 You can also offer a ride here: https://forms.gle/ABCDEFGHIJKLMNOPQ
 
@@ -43,14 +51,14 @@ If you'd rather not receive these updates, tell us by replying to this email,
 and we'll remove you manually.
 
 Cheers,
-The Carpooling with Neighbors Team
+The Carpooling with neighbours Team
 ```
 
 To use this solution, someone in the community / neighbourhood must fulfill the role of the Admin. The Admin needs to manually add users to a spreadsheet. Only users listed in the spreadsheet can receive the Sunday email or offer rides using the form.
 
 You only need the email addresses of those interested.
 
-💡 To improve the chances of success with this solution, I recommend starting with a small group of neighbors. Once you've tested it together and seen how it works, you can announce within your community: "Hey, we are a group of X neighbors who have tried [...]"
+💡 To improve the chances of success with this solution, I recommend starting with a small group of neighbours. Once you've tested it together and seen how it works, you can announce within your community: `Hey, we are a group of X neighbours who have tried [...]`
 
 <br/>
 
@@ -95,13 +103,13 @@ Now, on your project page:
    * A trigger that sets the phone number in the users file when the driver adds it to the form  
    * A trigger that sends an email to recipients every Sunday, sometime between 18:00 - 19:00  
 
-5. The default unsubscribe mode is `manual`. If you want your neighbors to be able to unsubscribe automatically, by replying with 'unsubscribe' to the received email, then:  
+5. The default unsubscribe mode is `manual`. If you want your neighbours to be able to unsubscribe automatically, by replying with 'unsubscribe' to the received email, then:  
    * In project settings (⚙️), scroll to the bottom of the page and click the button to edit the script properties
    * Change the UNSUBSCRIBE_MODE property from `manual` to `auto` and save
    * Open the `src/unsubscribe.js` file and run the `activateAutomaticEmailUnsubscribeTrigger` function
    * This will activate an automatic check (every 30 minutes) for unsubscribe emails and remove subscribers from the user list
 
-That’s it. Your only remaining task is to manually populate the user list. For each interested neighbor, you’ll need to add their email and desired language `[en, ro]`; optionally, you can also add their name, phone number, and a reference for driver identification (apartment/office).  
+That’s it. Your only remaining task is to manually populate the user list. For each interested neighbour, you’ll need to add their email and desired language `[en, ro]`; optionally, you can also add their name, phone number, and a reference for driver identification (apartment/office).  
 
 Names are useful for personalizing emails and reducing the chances of them being marked as spam. Phone numbers are necessary for drivers, and the optional reference helps email recipients better understand who the driver is.  
 
@@ -114,7 +122,7 @@ Google authorization scopes used by `Carpooling with Neighbours`:
 | `https://www.googleapis.com/auth/spreadsheets`     | Interaction with `Spreadsheet` files | Creation of spreadsheet files: users and ride offers |
 | `https://www.googleapis.com/auth/forms`            | Interaction with `Form` files | Creating the form for offering a ride |
 | `https://www.googleapis.com/auth/drive.file`       | Creation of new files and interaction with them | Uninstall option |
-| `https://www.googleapis.com/auth/userinfo.email`   | View the primary address of your Google account | Allows recipients to reply to the Sunday email (to unsubscribe) to the address `YOUR_EMAIL+carpooling-unsubscribe@gmail.com` |
+| `https://www.googleapis.com/auth/userinfo.email`   | View the primary address of your Google account | Allows recipients to reply to the Sunday email (to unsubscribe) to the address `YOUR_EMAIL+carpooling@gmail.com` |
 | `https://www.googleapis.com/auth/script.scriptapp` | Code execution in your absence | Used to automatically send the Sunday email |
 | `https://www.googleapis.com/auth/script.send_mail` | Sending emails on your behalf | Used to send the Sunday email |
 | `https://mail.google.com/`                         | Access to Gmail | Used to check if unsubscribe replies have been received at the mentioned address (only for the "auto" unsubscribe mode) |  
@@ -155,6 +163,6 @@ If you want to make a quick contribution, add support for your native language i
 
 ## Inspiration
 
-The challenge was *"How can I create a carpooling solution that works for any community with minimal effort and zero costs?"*. I created this solution after a neighbor gave me a ride to work (thanks, Roli!). I hope it inspires you to seek simplicity. Simple is hard.
+The challenge was *"How can I create a carpooling solution that works for any community with minimal effort and zero costs?"*. I created this solution after a neighbour gave me a ride to work (thanks, Roli!). I hope it inspires you to seek simplicity. Simple is hard.
 
 If you'd like to learn more about me or support my work, feel free to visit my [GitHub](https://github.com/sponsors/manufacturist) page.

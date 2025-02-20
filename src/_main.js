@@ -10,7 +10,7 @@ function main() {
 
 function setDefaultProperties(language) {
   const supportedLanguage = Object.keys(I18N).includes(language) ? language : 'en'
-  const replyToEmail = Session.getEffectiveUser().getEmail().replace('@', '+carpooling-unsubscribe@')
+  const replyToEmail = Session.getEffectiveUser().getEmail().replace('@', '+carpooling@')
 
   const scriptProperties = PropertiesService.getScriptProperties()
   scriptProperties.setProperty(PROPERTY.LANGUAGE, supportedLanguage)
