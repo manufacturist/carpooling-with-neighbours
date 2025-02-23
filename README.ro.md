@@ -116,15 +116,15 @@ Numele este util pentru a face email-ul mai personalizat și pentru a reduce șa
 Dacă ceva se strică, mult noroc <3 *"Țesutul digital fragil care ține această soluție laolaltă este rupt. Distruge-l și reconstruiește-l."* Salvează undeva datele din fișierul ce conține utilizatorii, și dezinstalează soluția. Va trebui să deschizi fișierul `src/uninstall.gs` și să rulezi (`▷`) funcția de `uninstall`. După care, reia procesul de instalare începând cu pasul 2.
 
 Domeniile de autorizare Google utilizate de către `Drumuri cu Vecinii`:
-| Domeniul OAuth 2.0                                 | Scop | Utilizare |
-|----------------------------------------------------|---|---|
-| `https://www.googleapis.com/auth/spreadsheets`     | Interacțiunea cu fișiere `Spreadsheet` | Crearea de fișiere tabelare: utilizatori și oferte de curse |
-| `https://www.googleapis.com/auth/forms`            | Interacțiunea cu fișiere `Form` | Crearea formularului prin care se oferă o cursă |
-| `https://www.googleapis.com/auth/drive.file`       | Creeare de fișiere noi și interacțiunea cu acestea | Opțiunea de dezinstalare (uninstall) |
-| `https://www.googleapis.com/auth/userinfo.email`   | Vede adresa principală a contului tău de Google | Pentru ca destinatarii să poată răspundă la email-ul de duminică (pentru dezabonare) către adresa `EMAILUL_TĂU+carpooling@gmail.com` |
-| `https://www.googleapis.com/auth/script.scriptapp` | Executare de cod în absența ta | Folosit pentru a trimite automat email-ul de duminică |
-| `https://www.googleapis.com/auth/script.send_mail` | Trimitere de email în numele tău | Folosit pentru a putea trimite email-ul de duminică |
-| `https://mail.google.com/`                         | Acces la Gmail | Folosit pentru a verifica dacă pe adresa menționată anterior, au venit răspunsuri de dezabonare de la destinatari (doar pentru modul "auto" de dezabonare)  |
+| Domeniul OAuth 2.0                     | Scop | Utilizare |
+|----------------------------------------|---|---|
+| `googleapis.com/auth/spreadsheets`     | Interacțiunea cu fișiere `Spreadsheet` | Crearea de fișiere tabelare: utilizatori și oferte de curse |
+| `googleapis.com/auth/forms`            | Interacțiunea cu fișiere `Form` | Crearea formularului prin care se oferă o cursă |
+| `googleapis.com/auth/drive.file`       | Creeare de fișiere noi și interacțiunea cu acestea | Opțiunea de dezinstalare (uninstall) |
+| `googleapis.com/auth/userinfo.email`   | Vede adresa principală a contului tău de Google | Pentru ca destinatarii să poată răspundă la email-ul de duminică (pentru dezabonare) către adresa `EMAILUL_TĂU+carpooling@gmail.com` |
+| `googleapis.com/auth/script.scriptapp` | Executare de cod în absența ta | Folosit pentru a trimite automat email-ul de duminică |
+| `googleapis.com/auth/script.send_mail` | Trimitere de email în numele tău | Folosit pentru a putea trimite email-ul de duminică |
+| `mail.google.com`                      | Acces la Gmail | Folosit pentru a verifica dacă pe adresa menționată anterior, au venit răspunsuri de dezabonare de la destinatari (doar pentru modul "auto" de dezabonare)  |
 
 <br/>
 
