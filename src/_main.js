@@ -4,6 +4,7 @@ function main() {
 
   usersSetup()
   offerRideSetup()
+  setCommunityId()
 
   Triggers.sundayRideOffersSummary.activateTrigger()
 }
@@ -73,4 +74,11 @@ function offerRideSetup() {
   Logger.log(`Set up ride offers: ${rideOffersSpreadsheet.getUrl()}`)
 
   Triggers.updatePhoneNumber.activateTrigger(offerRideForm)
+}
+
+function setCommunityId() {
+  const scriptProperties = PropertiesService.getScriptProperties()
+
+  const isCommunityIdMissing = !scriptProperties.getProperty(PROPERTY.COMMUNITY_ID)
+  if (isCommunityIdMissing) scriptProperties.setProperty(PROPERTY.COMMUNITY_ID, Utilities.getUuid())
 }

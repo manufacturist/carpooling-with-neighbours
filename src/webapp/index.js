@@ -37,6 +37,7 @@ function buildRideOffersPage(scriptProperties, scriptCache, language) {
 
   const pageTemplate = HtmlService.createTemplateFromFile("src/webapp/index.template")
   pageTemplate.lang = language
+  pageTemplate.communityId = scriptProperties.getProperty(PROPERTY.COMMUNITY_ID)
   pageTemplate.tripsForNextDays = i18n.WEBAPP_TRIPS_FOR_NEXT_DAYS
   pageTemplate.departureTime = i18n.WEBAPP_DEPARTURE_TIME
   pageTemplate.destination = i18n.WEBAPP_TRIP
