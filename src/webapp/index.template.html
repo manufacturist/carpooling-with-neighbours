@@ -5,7 +5,7 @@
   <?!= HtmlService.createHtmlOutputFromFile('src/webapp/index.style.gen').getContent() ?>
 </head>
 
-<body class="w-full bg-gray-50 p-6">
+<body class="w-full h-screen bg-gray-50 p-6">
   <div class="overflow-x-auto max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6">
     <h1 class="text-2xl font-medium mb-8 md:mb-4 text-center md:text-start text-balance">
       <?= tripsForNextDays ?>
@@ -30,31 +30,9 @@
     </div>
   </div>
 
-  <div id="language-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-    <div class="bg-white p-6 rounded-2xl shadow-xl text-center">
-      <div class="flex space-x-4 justify-center">
-        <button onclick="setLanguage('en')" class="px-4 py-2 text-white rounded-lg hover:bg-blue-600">
-          English
-        </button>
-        <button onclick="setLanguage('ro')" class="px-4 py-2 text-white rounded-lg hover:bg-blue-600">
-          Română
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const isLanguageMissing = !localStorage.getItem('language')
-
-    if (isLanguageMissing) {
-      document.getElementById('language-modal').classList.remove('hidden')
-    }
-
-    function setLanguage(language) {
-      localStorage.setItem('language', language)
-      document.getElementById('language-modal').classList.add('hidden')
-    }
-  </script>
+  <script defer src="https://carpooling-with-neighbours.56242013.workers.dev/static/files/pa.js" id="pianjs"
+    data-hit-endpoint="https://carpooling-with-neighbours.56242013.workers.dev/p/pv"
+    data-tag-community="<?= communityId ?>"></script>
 </body>
 
 </html>
