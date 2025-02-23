@@ -1,5 +1,14 @@
 /**
- * This is a cloufront worker 
+ * The purpose of this cloudfront worker is to act as a proxy between the users
+ * of the carpooling solution and pirsch.io, a GDPR-friendly analytics platform
+ * 
+ * pirsch.io has a limit of 200 views per single user session, however I wasn't 
+ * happy enough with this. Therefore, I modified their suggested cloudfront worker 
+ * to also include support for sliding window rate limitation with blocking
+ * 
+ * The 60 requests / 30 min sliding window (2 req per min) is high enough™ to 
+ * support tracking page views for residential buildings / offices or any other 
+ * small- / medium-sized communities, which might use a shared public IP
  */
 
 const ACCESS_KEY = "Add your own pirsch.io generated access key";
@@ -9,9 +18,9 @@ const PIRSCH_PAGE_VIEW_URL = "https://api.pirsch.io/api/v1/hit";
 const SCRIPT_PATH = "/static/files/pa.js";
 const PAGE_VIEW_PATH = "/p/pv";
 
-const MAX_REQUESTS = 30;
+const MAX_REQUESTS = 60;
 
-const RATE_LIMIT_WINDOW_SECONDS = 5 * 60;
+const RATE_LIMIT_WINDOW_SECONDS = 30 * 60;
 const RATE_LIMIT_WINDOW_MILLIS = RATE_LIMIT_WINDOW_SECONDS * 1000;
 
 const BASE_BLOCK_TIME_MILLIS = 10 * 60 * 1000;
