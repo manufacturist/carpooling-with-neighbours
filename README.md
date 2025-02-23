@@ -117,15 +117,15 @@ If something breaks, good luck <3 *"The fragile digital fabric holding this solu
 
 Google authorization scopes used by `Carpooling with Neighbours`:
 
-| OAuth 2.0 Scope                                    | Purpose | Usage |
-|----------------------------------------------------|---------|-------|
-| `https://www.googleapis.com/auth/spreadsheets`     | Interaction with `Spreadsheet` files | Creation of spreadsheet files: users and ride offers |
-| `https://www.googleapis.com/auth/forms`            | Interaction with `Form` files | Creating the form for offering a ride |
-| `https://www.googleapis.com/auth/drive.file`       | Creation of new files and interaction with them | Uninstall option |
-| `https://www.googleapis.com/auth/userinfo.email`   | View the primary address of your Google account | Allows recipients to reply to the Sunday email (to unsubscribe) to the address `YOUR_EMAIL+carpooling@gmail.com` |
-| `https://www.googleapis.com/auth/script.scriptapp` | Code execution in your absence | Used to automatically send the Sunday email |
-| `https://www.googleapis.com/auth/script.send_mail` | Sending emails on your behalf | Used to send the Sunday email |
-| `https://mail.google.com/`                         | Access to Gmail | Used to check if unsubscribe replies have been received at the mentioned address (only for the "auto" unsubscribe mode) |  
+| OAuth 2.0 Scope                        | Purpose | Usage |
+|----------------------------------------|---------|-------|
+| `googleapis.com/auth/spreadsheets`     | Interaction with `Spreadsheet` files | Creation of spreadsheet files: users and ride offers |
+| `googleapis.com/auth/forms`            | Interaction with `Form` files | Creating the form for offering a ride |
+| `googleapis.com/auth/drive.file`       | Creation of new files and interaction with them | Uninstall option |
+| `googleapis.com/auth/userinfo.email`   | View the primary address of your Google account | Allows recipients to reply to the Sunday email (to unsubscribe) to the address `YOUR_EMAIL+carpooling@gmail.com` |
+| `googleapis.com/auth/script.scriptapp` | Code execution in your absence | Used to automatically send the Sunday email |
+| `googleapis.com/auth/script.send_mail` | Sending emails on your behalf | Used to send the Sunday email |
+| `mail.google.com`                      | Access to Gmail | Used to check if unsubscribe replies have been received at the mentioned address (only for the "auto" unsubscribe mode) |  
 
 <br/>
 
