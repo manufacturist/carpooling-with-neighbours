@@ -1,10 +1,11 @@
 class Ride {
 
-  constructor(departureTimestamp, destination, meetingPoint, phoneNumber) {
+  constructor(departureTimestamp, destination, meetingPoint, phoneNumber, name) {
     this.departureTimestamp = departureTimestamp
     this.destination = destination
     this.meetingPoint = meetingPoint
     this.phoneNumber = phoneNumber
+    this.name = name
 
     this.template = HtmlService.createTemplateFromFile('src/webapp/components/ride/ride.template')
 
@@ -24,6 +25,7 @@ class Ride {
     this.template.destination = this.destination
     this.template.meetingPoint = this.meetingPoint
     this.template.phoneNumber = this.phoneNumber
+    this.template.name = this.name
 
     return this.template.evaluate().getContent()
   }

@@ -17,6 +17,7 @@ function doGet() {
   return rideOffersPage
     .setTitle(I18N[language].WEBAPP_TITLE)
     .addMetaTag('viewport', 'width=device-width, initial-scale=1')
+    .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL)
 }
 
 function buildRideOffersPage(scriptProperties, scriptCache, language) {
@@ -30,9 +31,9 @@ function buildRideOffersPage(scriptProperties, scriptCache, language) {
   const i18n = I18N[language]
 
   const usersByEmails = Services.userService.fetchUsersByEmailsMap()
-  const nextWeekRides = Services.rideOfferService.fetchNextWeekRideOffers(usersByEmails).map((rideOffer) => {
-    const phoneNumber = usersByEmails.get(rideOffer.email).phoneNumber
-    return new Ride(rideOffer.departureTimestamp, rideOffer.destination, rideOffer.meetingPoint, phoneNumber)
+  const nextWeekRides = Services.rideOfferService.fetchNext7DaysRideOffers(usersByEmails).map((rideOffer) => {
+    const user = usersByEmails.get(rideOffer.email)
+    return new Ride(rideOffer.departureTimestamp, rideOffer.destination, rideOffer.meetingPoint, user.phoneNumber, user.name)
   })
 
   const pageTemplate = HtmlService.createTemplateFromFile("src/webapp/index.template")
@@ -43,7 +44,10 @@ function buildRideOffersPage(scriptProperties, scriptCache, language) {
   pageTemplate.destination = i18n.WEBAPP_TRIP
   pageTemplate.meetingPoint = i18n.WEBAPP_MEETING_POINT
   pageTemplate.phoneNumber = i18n.WEBAPP_PHONE_NUMBER
-  pageTemplate.rides = nextWeekRides.map((ride) => ride.render(language)).join("")
+
+  const rides = nextWeekRides.map((ride) => ride.render(language)).join("")
+  Logger.log(rides)
+  pageTemplate.rides = rides
 
   const evaluatedHtmlPage = pageTemplate.evaluate()
   scriptCache.put(CACHE.RENDERED_PAGE, evaluatedHtmlPage.getContent(), 60 * 3)

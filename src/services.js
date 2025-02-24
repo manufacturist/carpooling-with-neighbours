@@ -119,6 +119,8 @@ class RideOfferService {
     const validRideOffers = this.fetchAllUpcomingRideOffers().filter(offer => usersByEmails.has(offer.email))
 
     const now = new Date()
+    now.setHours(0, 0, 0, 0)
+
     const currentDay = now.getDay()
     const daysToMonday = (currentDay === 0) ? 1 : (7 - currentDay + 1)
 
