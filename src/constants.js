@@ -38,7 +38,7 @@ const I18N = {
     }),
 
     FORM_TITLE: "[Carpooling with Neighbors] Offer a Ride",
-    FORM_DESCRIPTION: "\n🔹 Your ride for the upcoming week will be included in the next Sunday email\n\n🔸 Make sure the admin has added your email address to the users spreadsheet before adding a trip!\n",
+    FORM_DESCRIPTION: "\n🔹 The rides for the upcoming week will be included in the next Sunday email\n\n🔸 Make sure the admin has added your email address to the users spreadsheet before adding a trip!\n",
     FORM_DESTINATION: "What is your destination?",
     FORM_DEPARTURE_TIME: "When do you plan to depart?",
     FORM_MEETING_POINT: "Where would you like your neighbors to meet you?",
@@ -48,6 +48,8 @@ const I18N = {
 
     WEBAPP_TITLE: "Vroom vroom!",
     WEBAPP_TRIPS_FOR_NEXT_DAYS: "Trips for the next 7 days",
+    WEBAPP_OFFER_RIDE: "If you want, you can also offer a ride ",
+    WEBAPP_OFFER_RIDE_LINK_TEXT: "here",
     WEBAPP_DEPARTURE_TIME: "Departure",
     WEBAPP_TRIP: "Trip",
     WEBAPP_MEETING_POINT: "Meet",
@@ -83,7 +85,7 @@ const I18N = {
     }),
 
     FORM_TITLE: "[Drumuri cu Vecinii] Oferă o cursă",
-    FORM_DESCRIPTION: "\n🔹 Cursa ta pentru săptămâna viitoare va fi inclusă în emailul de duminica aceasta\n\n🔸 Reține că dacă adaugi o cursă după ce emailul de duminică a fost trimis, aceasta nu va fi vizibilă pentru nimeni în săptămâna următoare\n",
+    FORM_DESCRIPTION: "\n🔹 Cursele pentru săptămâna viitoare vor fi inclusă în emailul de duminică\n\n🔸 Asigură-te că adminul ți-a adăugat adresa de email în sistem înainte de a adăuga o călătorie!\n",
     FORM_DESTINATION: "Care este destinația ta?",
     FORM_DEPARTURE_TIME: "Când plănuiești să pleci?",
     FORM_MEETING_POINT: "Unde ar trebui să te întâlnească vecinii?",
@@ -93,6 +95,8 @@ const I18N = {
 
     WEBAPP_TITLE: "Vrum vrum!",
     WEBAPP_TRIPS_FOR_NEXT_DAYS: "Cursele pe următoarele 7 zile",
+    WEBAPP_OFFER_RIDE: "Dacă vrei, poți oferi și tu o cursă ",
+    WEBAPP_OFFER_RIDE_LINK_TEXT: "aici",
     WEBAPP_DEPARTURE_TIME: "Ora",
     WEBAPP_TRIP: "Drum",
     WEBAPP_MEETING_POINT: "Plecare",

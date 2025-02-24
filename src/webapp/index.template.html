@@ -7,9 +7,14 @@
 
 <body class="w-full h-screen p-6 overflow-auto">
   <div class="overflow-x-auto max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6">
-    <h1 class="text-2xl font-medium mb-8 md:mb-4 text-center md:text-start text-balance">
+    <h1 class="text-xl md:text-2xl font-medium mb-4 text-center md:text-start text-balance">
       <?= tripsForNextDays ?>
     </h1>
+    <p class="text-md md:text-lg text-center md:text-start mb-8 md:mb-4">
+      <?= offerRide ?> <a href="<?= offerRideLink ?>" target="_blank">
+        <span class="text-blue-600 hover:underline"><?= offerRideLinkText ?></span>.
+      </a>
+    </p>
     <div class="flex flex-col gap-8 md:gap-4 justify-self-center md:justify-self-auto">
       <div class="hidden md:flex gap-4 w-full font-semibold border-b-1 border-gray-300 px-2 py-2 my-2">
         <div class="flex-1">
