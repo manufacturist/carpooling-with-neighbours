@@ -46,7 +46,6 @@ function buildRideOffersPage(scriptProperties, scriptCache, language) {
   pageTemplate.phoneNumber = i18n.WEBAPP_PHONE_NUMBER
 
   const rides = nextWeekRides.map((ride) => ride.render(language)).join("")
-  Logger.log(rides)
   pageTemplate.rides = rides
 
   const evaluatedHtmlPage = pageTemplate.evaluate()
