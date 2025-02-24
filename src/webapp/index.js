@@ -40,6 +40,9 @@ function buildRideOffersPage(scriptProperties, scriptCache, language) {
   pageTemplate.lang = language
   pageTemplate.communityId = scriptProperties.getProperty(PROPERTY.COMMUNITY_ID)
   pageTemplate.tripsForNextDays = i18n.WEBAPP_TRIPS_FOR_NEXT_DAYS
+  pageTemplate.offerRide = i18n.WEBAPP_OFFER_RIDE;
+  pageTemplate.offerRideLink = scriptProperties.getProperty(PROPERTY.OFFER_RIDE_FORM_URL)
+  pageTemplate.offerRideLinkText = i18n.WEBAPP_OFFER_RIDE_LINK_TEXT
   pageTemplate.departureTime = i18n.WEBAPP_DEPARTURE_TIME
   pageTemplate.destination = i18n.WEBAPP_TRIP
   pageTemplate.meetingPoint = i18n.WEBAPP_MEETING_POINT
