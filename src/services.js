@@ -121,11 +121,8 @@ class RideOfferService {
     const now = new Date()
     now.setHours(0, 0, 0, 0)
 
-    const currentDay = now.getDay()
-    const daysToMonday = (currentDay === 0) ? 1 : (7 - currentDay + 1)
-
     const after7Days = new Date()
-    after7Days.setDate(now.getDate() + daysToMonday)
+    after7Days.setDate(now.getDate() + 7)
     after7Days.setHours(23, 59, 59, 999)
 
     const activeRideOffers = validRideOffers.filter(activeRideOffer => {
