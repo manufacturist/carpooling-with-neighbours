@@ -30,22 +30,24 @@ class SundayRideOffersSummary {
     templates.ro.offerRideFormUrl = offerRideFormUrl
 
     users.forEach((user) => {
-      const unsubscribeMessage =
-        unsubscribeMode == UNSUBSCRIBE_MODE.MANUAL ? I18N[user.language].EMAIL_UNSUBSCRIBE_MANUAL :
-          unsubscribeMode == UNSUBSCRIBE_MODE.AUTO ? I18N[user.language].EMAIL_UNSUBSCRIBE_AUTO
-            : null
+      if (user.notification) {
+        const unsubscribeMessage =
+          unsubscribeMode == UNSUBSCRIBE_MODE.MANUAL ? I18N[user.language].EMAIL_UNSUBSCRIBE_MANUAL :
+            unsubscribeMode == UNSUBSCRIBE_MODE.AUTO ? I18N[user.language].EMAIL_UNSUBSCRIBE_AUTO
+              : null
 
-      const message = SundayRideOffersSummary.generateTextSummary(
-        usersByEmails, nextWeekRides, unsubscribeMessage, templates[user.language], user
-      )
+        const message = SundayRideOffersSummary.generateTextSummary(
+          usersByEmails, nextWeekRides, unsubscribeMessage, templates[user.language], user
+        )
 
-      MailApp.sendEmail({
-        name: I18N[user.language].EMAIL_NAME,
-        subject: I18N[user.language].EMAIL_SUBJECT,
-        to: user.email,
-        body: message,
-        replyTo: replyToEmail
-      })
+        MailApp.sendEmail({
+          name: I18N[user.language].EMAIL_NAME,
+          subject: I18N[user.language].EMAIL_SUBJECT,
+          to: user.email,
+          body: message,
+          replyTo: replyToEmail
+        })
+      }
     })
 
     Logger.log(`Remaining email quota: ${MailApp.getRemainingDailyQuota()}`)
