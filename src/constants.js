@@ -23,7 +23,7 @@ const CACHE = {
 const SPREADSHEETS = {
   USERS: "[carpool][db][users]",
   USERS_HEADER: ["Email Address", "Language", "Name", "Phone Number", "Send emails", "Identifying Reference"],
-  USERS_COLUMN_WIDTHS: [220, 70, 90, 120, 50, 200],
+  USERS_COLUMN_WIDTHS: [220, 70, 90, 120, 75, 200],
   RIDE_OFFERS: "[carpool][db][rideOffers]"
 }
 
