@@ -52,7 +52,7 @@ function offerRideSetup() {
   offerRideForm.setCollectEmail(true)
 
   offerRideForm.addTextItem().setTitle(i18n.FORM_DESTINATION).setRequired(true)
-  offerRideForm.addDateTimeItem().setTitle(i18n.FORM_DEPARTURE_TIME).setHelpText(i18n.FORM_DEPARTURE_TIME_DESCRIPTION).setRequired(true)
+  offerRideForm.addDateTimeItem().setTitle(i18n.FORM_DEPARTURE_TIME).setRequired(true)
   offerRideForm.addTextItem().setTitle(i18n.FORM_MEETING_POINT).setRequired(false)
   offerRideForm.addScaleItem().setTitle(i18n.FORM_AVAILABLE_SEATS).setBounds(1, 4).setRequired(true)
   offerRideForm.addTextItem().setTitle(i18n.FORM_PHONE_NUMBER).setHelpText(i18n.FORM_PHONE_NUMBER_DESCRIPTION).setRequired(false)
