@@ -145,6 +145,6 @@ Toate detaliile tehnice pot fi găsite [aici [RO]](./docs/TECHNICAL.ro.md) sau [
 
 ## Inspirație
 
-Provocarea a fost "Cum pot crea o soluție de carpooling care să funcționeze pentru orice comunitate cu un efort minim și costuri zero?". Am creat această soluție după ce un vecin m-a dus cu mașina la serviciu (mulțumesc, Roli!). Sper să te inspire să cauți simplitatea. Simplu este greu.
+Provocarea a fost *"Cum pot crea o soluție de carpooling care să funcționeze pentru orice comunitate cu un efort minim și costuri zero?"*. Am creat această soluție după ce un vecin m-a dus cu mașina la serviciu (mulțumesc, Roli!). Sper să te inspire să cauți simplitatea. Simplu este greu.
 
 Dacă vrei să afli mai multe despre mine sau să-mi susții munca, poți vizita pagina mea de [GitHub](https://github.com/sponsors/manufacturist).
