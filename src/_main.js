@@ -1,8 +1,8 @@
 function main() {
   const language = 'en'
-  setDefaultProperties(language)
 
-  usersSetup()
+  setDefaultProperties(language)
+  usersSetup(language)
   offerRideSetup()
   setCommunityId()
 
@@ -20,7 +20,7 @@ function setDefaultProperties(language) {
   scriptProperties.setProperty(PROPERTY.UNSUBSCRIBE_MODE, UNSUBSCRIBE_MODE.MANUAL)
 }
 
-function usersSetup() {
+function usersSetup(language) {
   const scriptProperties = PropertiesService.getScriptProperties()
 
   Logger.log("Setting up users spreadsheet")
@@ -30,7 +30,7 @@ function usersSetup() {
 
   const usersSheet = usersSpreadsheet.getActiveSheet()
   usersSheet.setName("Verified Users")
-  usersSheet.getRange(1, 1, 1, SPREADSHEETS.USERS_HEADER.length).setValues([SPREADSHEETS.USERS_HEADER])
+  usersSheet.getRange(1, 1, 1, I18N[language].USERS_HEADER.length).setValues([I18N[language].USERS_HEADER])
 
   SPREADSHEETS.USERS_COLUMN_WIDTHS.map((width, widthIndex) => usersSheet.setColumnWidth(widthIndex + 1, width))
 

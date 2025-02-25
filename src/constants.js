@@ -22,8 +22,7 @@ const CACHE = {
 
 const SPREADSHEETS = {
   USERS: "[carpool][db][users]",
-  USERS_HEADER: ["Email Address", "Language", "Name", "Phone Number", "Send emails", "Identifying Reference"],
-  USERS_COLUMN_WIDTHS: [220, 70, 90, 120, 75, 200],
+  USERS_COLUMN_WIDTHS: [230, 80, 100, 130, 140, 200],
   RIDE_OFFERS: "[carpool][db][rideOffers]"
 }
 
@@ -36,6 +35,8 @@ const I18N = {
       hour: 'numeric',
       minute: '2-digit'
     }),
+
+    USERS_HEADER: ["Email Address", "Language", "Name", "Phone Number", "Send emails", "Identifying Reference"],
 
     FORM_TITLE: "[Carpooling with Neighbors] Offer a Ride",
     FORM_DESCRIPTION: "\n🔹 The rides for the upcoming week will be included in the next Sunday email\n\n🔸 Make sure the admin has added your email address to the users spreadsheet before adding a trip!\n",
@@ -83,6 +84,8 @@ const I18N = {
       hour: '2-digit',
       minute: '2-digit'
     }),
+
+    USERS_HEADER: ["Adresa de email", "Limbă", "Nume", "Număr de telefon", "Primește email-uri", "Referință de identificare"],
 
     FORM_TITLE: "[Drumuri cu Vecinii] Oferă o cursă",
     FORM_DESCRIPTION: "\n🔹 Cursele pentru săptămâna viitoare vor fi inclusă în emailul de duminică\n\n🔸 Asigură-te că adminul ți-a adăugat adresa de email în sistem înainte de a adăuga o călătorie!\n",
