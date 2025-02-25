@@ -1,4 +1,4 @@
-[Back](./../README.md)
+[Back](https://github.com/manufacturist/carpooling-with-neighbours?tab=readme-ov-file#carpooling-with-neighbours)
 
 # Development
 
@@ -37,7 +37,7 @@ List of required Google authorization scopes:
 | Category | Challenge | Solution |
 |----------|-----------|----------|
 | Web App  | Avoid using CDNs & adding styles | A basic tailwind setup. There's a single entry point in the web app via the `doGet()` function. One could argue that you could multiplex the entry point and serve content depending on a specific parameter in the endpoint, however that felt a bit awkward to do. I ended up embedding the generated css in the `index.template.html`, using the `<?!= tailwind-css-here ?>` notation. This notation enables the XSS attack vector, however since we control the generated css, it's fine.|
-|          | Track page views | Ended using [Pirsch](https://pirsch.io) for this and a cloudfront worker. It's GDPR friendly and doesn't use cookies. The worker's purpose is to safe guard against bursts of requests that consume the page views quota from pirsch. It works using a sliding rate window and a simple IP blocking mechanism. Too many requests from the same IP and boom, block tracking page views for that IP. During the setup of the project, a community id is generated, which is used as the referrer when we call pirsch. This is done in order to segment the page views per community and to avoid displaying the internal iframe URL in the metrics dashboard.|
+|          | Track page views | Using [Pirsch](https://pirsch.io) for this and a cloudfront worker. It's GDPR friendly and doesn't use cookies. The worker's purpose is to safe guard against bursts of requests that consume the page views quota from pirsch. It works using a sliding rate window and a simple IP blocking mechanism. Too many requests from the same IP and boom, block tracking page views for that IP. During the setup of the project, a community id is generated, which is used as the referrer when we call pirsch. This is done in order to segment the page views per community and to avoid displaying the internal iframe URL in the metrics dashboard.|
 |          | Components | Only using one component for the ride. It uses the `<?= ?>` notation to inject text safely during rendering. For the |
 |          | Rendered page cached | The rendered page is cached for 3 minutes to avoid doing all the work of fetching data and rendering. |
 | DevX     | Slow development cycles | Use clasp. Use VSC for suggestions. Update web app with `npm run update` |
