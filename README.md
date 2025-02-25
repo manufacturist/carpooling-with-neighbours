@@ -103,13 +103,17 @@ Now, on your project page:
    * A trigger that sets the phone number in the users file when the driver adds it to the form  
    * A trigger that sends an email to recipients every Sunday, sometime between 18:00 - 19:00  
 
-5. The default unsubscribe mode is `manual`. If you want your neighbours to be able to unsubscribe automatically, by replying with 'unsubscribe' to the received email, then:  
+5. Now, press the big blue `Deploy` button and pick the `New deployment` option. In the new opened window, press `Deploy`. Now, you'll see the `Web App` link which can be used to access the available rides. If you can access it and see an empty list, the setup is complete
+
+The next step is optional:
+
+6. The default unsubscribe mode is `manual`. If you want your neighbours to be able to unsubscribe automatically, by replying with 'unsubscribe' to the received email, then:  
    * In project settings (⚙️), scroll to the bottom of the page and click the button to edit the script properties
    * Change the UNSUBSCRIBE_MODE property from `manual` to `auto` and save
    * Open the `src/unsubscribe.js` file and run the `activateAutomaticEmailUnsubscribeTrigger` function
    * This will activate an automatic check (every 30 minutes) for unsubscribe emails and remove subscribers from the user list
 
-That’s it. Your only remaining task is to manually populate the user list. For each interested neighbour, you’ll need to add their email and desired language `[en, ro]`; optionally, you can also add their name, phone number, and a reference for driver identification (apartment/office).  
+Your only remaining task is to manually populate the user list. For each interested neighbour, you’ll need to add their email, desired language `[en, ro]` and `1` in the notification column if they should receive the Sunday email, otherwise leave it empty; optionally, you can also add their name, phone number, and a reference for driver identification (apartment/office). That’s it. 
 
 Names are useful for personalizing emails and reducing the chances of them being marked as spam. Phone numbers are necessary for drivers, and the optional reference helps email recipients better understand who the driver is.  
 
@@ -119,7 +123,7 @@ If something breaks, good luck <3 *"The fragile digital fabric holding this solu
 
 ## Development
 
-All technicals details can be found [here](./technical/TECHNICAL.md).
+All technicals details can be found [here](./docs/TECHNICAL.md).
 
 <br/>
 

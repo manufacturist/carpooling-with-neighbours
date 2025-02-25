@@ -103,13 +103,17 @@ Acuma, pe pagina proiectului tău:
    * Un trigger care setează numărul de telefon în fișierul de utilizatori, atunci când îl adaugă șoferul în formular
    * Un trigger care trimite un email destinatarilor în fiecare duminică, cândva în fereastra 18:00 - 19:00
 
-5. Modul de dezabonarea utilizat este cel `manual`. Dacă vrei ca vecinii tăi să se poată dezabona automat, răspunzând cu 'dezabonare' la email-ul primit, atunci:
+5. Acuma apasă pe butonul mare și albastru de `Deploy` și alege opțiunea de `New deployment`. În fereastra nou deschisă, apasă pe `Deploy`. Acuma, vei vedea link-ul `Web App URL` care poate fi accesat pentru a vedea drumurile valabile oferite de câtre vecini. Dacă îți este accesibil, instalarea este completă
+
+Pasul următor este opțional:
+
+6. Modul de dezabonarea utilizat este cel `manual`. Dacă vrei ca vecinii tăi să se poată dezabona automat, răspunzând cu 'dezabonare' la email-ul primit, atunci:
    * În setările proiectului (⚙️), dute în josul paginii, și apasă pe butonul de editare a proprietăților script-ului
    * Modifică proprietatea UNSUBSCRIBE_MODE, din `manual` în `auto` și salvează
    * Deschide fișierul `src/unsubscribe.js` și rulează funcția `activateAutomaticEmailUnsubscribeTrigger`
    * Aceasta va activa o verificare automată (odată la 30 de minute), care caută email-uri de dezabonare și șterge abonații din lista de utilizatori
 
-Asta e tot. Singura ta sarcină rămasă este să populezi manual lista de utilizatori. Pentru fiecare vecin interesat va trebui să introduci email-ul său și limba dorită de către acesta `[en, ro]`; opțional mai poți adăuga numele, numărul de telefon și o referință de identificare pentru șofer (apartament / birou).
+Singura ta sarcină rămasă este să populezi manual lista de utilizatori. Pentru fiecare vecin interesat va trebui să introduci email-ul său și limba dorită de către acesta `[en, ro]`, precum și `1` în coloana de notificare dacă vrea să primească emailul de duminică; altfel, lasă coloana goală opțional mai poți adăuga numele, numărul de telefon și o referință de identificare pentru șofer (apartament / birou). Asta e tot.
 
 Numele este util pentru a face email-ul mai personalizat și pentru a reduce șansa ca acesta să ajungă la spam. Numărul de telefon este necesar pentru șoferi, iar referința opțională îi ajută pe destinatarii email-ului să înțeleagă mai bine cine este șoferul.
 
@@ -119,7 +123,7 @@ Dacă ceva se strică, mult noroc <3 *"Țesutul digital fragil care ține aceast
 
 ## Procesul de dezvoltare
 
-Toate detaliile tehnice pot fi găsite [aici [RO]](./technical/TECHNICAL.ro.md) sau [aici [EN]](./technical/TECHNICAL.md).
+Toate detaliile tehnice pot fi găsite [aici [RO]](./docs/TECHNICAL.ro.md) sau [aici [EN]](./docs/TECHNICAL.md).
 
 <br/>
 
