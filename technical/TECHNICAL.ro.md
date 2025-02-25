@@ -1,6 +1,6 @@
 [Back](./../README.md) | [Technical [EN]](./TECHNICAL.md)
 
-## Procesul de dezvoltare
+# Procesul de dezvoltare
 
 Clonează acest repo și însușește-ți-l. Nu există o soluție universală. Comunități diferite, nevoi diferite.
 
