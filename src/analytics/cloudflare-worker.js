@@ -6,19 +6,19 @@
  * happy enough with this. Therefore, I modified their suggested cloudfront worker 
  * to also include support for sliding window rate limitation with blocking
  * 
- * The 60 requests / 30 min sliding window (2 req per min) is high enough™ to 
+ * The 40 requests / 30 min sliding window (1.66 req per min) is high enough™ to 
  * support tracking page views for residential buildings / offices or any other 
- * small- / medium-sized communities, which might use a shared public IP
+ * small- / medium-sized communities, which might use a shared public IPs
  */
 
-const ACCESS_KEY = "Add your own pirsch.io generated access key";
+const ACCESS_KEY = "Add your own pirsch.io access key";
 const PIRSCH_SCRIPT_URL = "https://api.pirsch.io/pa.js";
 const PIRSCH_PAGE_VIEW_URL = "https://api.pirsch.io/api/v1/hit";
 
 const SCRIPT_PATH = "/static/files/pa.js";
 const PAGE_VIEW_PATH = "/p/pv";
 
-const MAX_REQUESTS = 60;
+const MAX_REQUESTS = 40;
 
 const RATE_LIMIT_WINDOW_SECONDS = 30 * 60;
 const RATE_LIMIT_WINDOW_MILLIS = RATE_LIMIT_WINDOW_SECONDS * 1000;

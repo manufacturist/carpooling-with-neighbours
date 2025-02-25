@@ -24,7 +24,7 @@ Este o soluție benefică pentru:
 
 ## Cum funcționează?
 
-Un vecin poate oferi o cursă completând un formular. În fiecare duminică, un email este trimis în jurul orei 18:00 cu o listă de curse disponibile pentru săptămâna următoare tuturor celor interesați:
+Un vecin poate oferi o cursă completând un formular. În fiecare duminică, un email este trimis în jurul orei 18:00 cu o listă de curse disponibile pentru săptămâna următoare tuturor celor interesați. De asemenea, vecinii pot verifica oricând cele mai recente drumuri valabile pe o pagină web.
 
 ```
 Bună Veta,
@@ -56,7 +56,7 @@ Echipa Drumuri cu Vecinii
 
 Pentru a utiliza această soluție, cineva din comunitate / cartier trebuie să îndeplinească rolul de Admin. Adminul trebuie să adauge manual utilizatorii într-un fișier Google de tip "Sheet". Doar cei adăugați în fișierul respectiv pot primi email-ul de duminică sau pot oferi curse prin formular.
 
-Ai nevoie doar de adresele de email ale celor interesați.
+💡 Dacă nu dorești să folosești emailul de duminică, poți să adaugi doar șoferii în fișierul de utilizatori
 
 💡 Pentru a avea mai mult succes cu această soluție, îți recomand să începi cu un grup mic de vecini. După ce o testați împreună și vedeți cum merge, puteți da anunțul în comunitate: `Salutare, suntem un grup de X vecini care am încercat [...]`
 
@@ -66,7 +66,7 @@ Ai nevoie doar de adresele de email ale celor interesați.
 
 1. Costuri zero! Fără instalări de aplicații sau înregistrări de conturi (cu excepția șoferilor<sup>(1)</sup>)
 
-2. Funcționează cu până la 100<sup>(2)</sup> de vecini (email-ul de duminică)
+2. Funcționează cu orice număr de vecini<sup>(2)</sup>
 
 3. Este un mod simplu de socializa cu vecinii tăi și de a reduce traficul din zona ta
 
@@ -74,7 +74,7 @@ Ai nevoie doar de adresele de email ale celor interesați.
 
 <sup>(1)</sup> Șoferii trebuie să aibă un cont Google verificat pentru a oferi curse prin formular
 
-<sup>(2)</sup> 100 este cota zilnică de e-mailuri pentru conturile gratuite și 1500 pentru cele Workspace
+<sup>(2)</sup> Emailul de duminică. 100 este cota zilnică de e-mailuri pentru conturile gratuite și 1500 pentru cele Workspace
 
 <br/>
 
@@ -113,34 +113,13 @@ Asta e tot. Singura ta sarcină rămasă este să populezi manual lista de utili
 
 Numele este util pentru a face email-ul mai personalizat și pentru a reduce șansa ca acesta să ajungă la spam. Numărul de telefon este necesar pentru șoferi, iar referința opțională îi ajută pe destinatarii email-ului să înțeleagă mai bine cine este șoferul.
 
-Dacă ceva se strică, mult noroc <3 *"Țesutul digital fragil care ține această soluție laolaltă este rupt. Distruge-l și reconstruiește-l."* Salvează undeva datele din fișierul ce conține utilizatorii, și dezinstalează soluția. Va trebui să deschizi fișierul `src/uninstall.gs` și să rulezi (`▷`) funcția de `uninstall`. După care, reia procesul de instalare începând cu pasul 2.
-
-Domeniile de autorizare Google utilizate de către `Drumuri cu Vecinii`:
-| Domeniul OAuth 2.0                     | Scop | Utilizare |
-|----------------------------------------|---|---|
-| `googleapis.com/auth/spreadsheets`     | Interacțiunea cu fișiere `Spreadsheet` | Crearea de fișiere tabelare: utilizatori și oferte de curse |
-| `googleapis.com/auth/forms`            | Interacțiunea cu fișiere `Form` | Crearea formularului prin care se oferă o cursă |
-| `googleapis.com/auth/drive.file`       | Creeare de fișiere noi și interacțiunea cu acestea | Opțiunea de dezinstalare (uninstall) |
-| `googleapis.com/auth/userinfo.email`   | Vede adresa principală a contului tău de Google | Pentru ca destinatarii să poată răspundă la email-ul de duminică (pentru dezabonare) către adresa `EMAILUL_TĂU+carpooling@gmail.com` |
-| `googleapis.com/auth/script.scriptapp` | Executare de cod în absența ta | Folosit pentru a trimite automat email-ul de duminică |
-| `googleapis.com/auth/script.send_mail` | Trimitere de email în numele tău | Folosit pentru a putea trimite email-ul de duminică |
-| `mail.google.com`                      | Acces la Gmail | Folosit pentru a verifica dacă pe adresa menționată anterior, au venit răspunsuri de dezabonare de la destinatari (doar pentru modul "auto" de dezabonare)  |
+Dacă ceva se strică, mult noroc <3 *"Țesutul digital fragil care ține această soluție laolaltă este rupt. Distruge-l și reconstruiește-l."* Salvează datele din fișierul ce conține utilizatorii și dezinstalează soluția. Va trebui să deschizi fișierul `src/uninstall.gs` și să rulezi `▷` funcția de `uninstall`. După care, reia procesul de instalare începând cu pasul 2.
 
 <br/>
 
 ## Procesul de dezvoltare
 
-Clonează acest repo și însușește-ți-l. Nu există o soluție universală. Comunități diferite, nevoi diferite.
-
-Deschide proiectul în editorul preferat și instalează pachetul (`npm install`). Astfel vei avea sugestii când codezi. Folosește [clasp](https://github.com/google/clasp)!
-
-Dacă faci o schimbare care aduce un beneficiu comunității tale și consideri că i-ar putea ajuta și pe alții, nu ezita să deschizi un PR, dar ține cont de următoarele te rog:
-1. UX-ul trebuie să rămână simplu și minimalist
-2. Dacă este prea personalizat pentru comunitatea ta și nu i-ar ajuta pe alții, poate că o extensie ar fi mai utilă
-
-Extensia ar fi un script independent și ar trebui să refolosească fișierele create, dar atenție, pentru că va necesita un domeniu de autorizare mai puternic, și anume `https://www.googleapis.com/auth/drive`. Cel mai probabil utilizatorii vor fi nevoiți să ia din proprietățile scriptului de față, id-urile pentru spreadsheet-uri, `USERS_SSID` & `RIDE_OFFERS_SSID`, și să le adauge în extensie.
-
-Dacă vrei să faci o contribuție rapidă, poți adăuga suport pentru limba ta maternă dacă nu există deja (fișierul `src/contants.js`).
+Toate detaliile tehnice pot fi găsite [aici [RO]](./technical/TECHNICAL.ro.md) sau [aici [EN]](./technical/TECHNICAL.md).
 
 <br/>
 

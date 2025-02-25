@@ -24,7 +24,7 @@ This is a beneficial solution for:
 
 ## How it works
 
-A neighbour offers a ride by filling out a form. Every Sunday, an email is sent around 18:00 with a list of available rides for the upcoming week to all those interested:
+A neighbour offers a ride by filling out a form. Every Sunday, an email is sent after 18:00 with a list of available rides for the upcoming week to all those interested. Neighbours can also check the latest rides anytime on a webpage.
 
 ```
 Hey Sally Carrera,
@@ -32,7 +32,7 @@ Hey Sally Carrera,
 Here are the available rides for next week:
 
 🚘 California International Speedway | Wednesday, Aug 20, 13:37 PM
-Driver: Lightning McQueen (no. 42, +0123456789)
+Driver: Lightning McQueen (+0123456789)
 Meet: Mater's Garage (Radiator Springs) | Seats: 3
 
 🚘 Brunch @ Central Perk Coffeehouse | Saturday, Aug 23, 12:00 AM
@@ -56,9 +56,9 @@ The Carpooling with neighbours Team
 
 To use this solution, someone in the community / neighbourhood must fulfill the role of the Admin. The Admin needs to manually add users to a spreadsheet. Only users listed in the spreadsheet can receive the Sunday email or offer rides using the form.
 
-You only need the email addresses of those interested.
+💡 If you don’t plan to send the Sunday email, you only need to add drivers to the spreadsheet
 
-💡 To improve the chances of success with this solution, I recommend starting with a small group of neighbours. Once you've tested it together and seen how it works, you can announce within your community: `Hey, we are a group of X neighbours who have tried [...]`
+💡 To improve the chances of success, start with a small group of neighbours. Once you've tested it together and seen how it works, you can announce it to the community: `Hey, we are a group of X neighbours who have tried [...]`
 
 <br/>
 
@@ -66,7 +66,7 @@ You only need the email addresses of those interested.
 
 1. Zero costs! No app instalations or account registrations required (except for drivers<sup>(1)</sup>)
 
-2. It works for up to 100<sup>(2)</sup> neighbours (Sunday email)
+2. It works for any number of users<sup>(2)</sup>
 
 3. It’s a simple way to get in touch with your neighbours and help lessen the traffic in your area
 
@@ -74,7 +74,7 @@ You only need the email addresses of those interested.
 
 <sup>(1)</sup> Drivers must have a verified Google account to offer rides through the form
 
-<sup>(2)</sup> 100 is the daily email quota for free accounts and 1500 for workspace ones
+<sup>(2)</sup> Sunday email. 100 is the daily email quota for free accounts and 1500 for workspace ones
 
 <br/>
 
@@ -113,35 +113,13 @@ That’s it. Your only remaining task is to manually populate the user list. For
 
 Names are useful for personalizing emails and reducing the chances of them being marked as spam. Phone numbers are necessary for drivers, and the optional reference helps email recipients better understand who the driver is.  
 
-If something breaks, good luck <3 *"The fragile digital fabric holding this solution together is torn. Destroy it and rebuild it."* Save the data from the users file somewhere, then uninstall the solution. You’ll need to open the `src/uninstall.gs` file and run (`▷`) the `uninstall` function. Then, restart the installation process from step 2.  
-
-Google authorization scopes used by `Carpooling with Neighbours`:
-
-| OAuth 2.0 Scope                        | Purpose | Usage |
-|----------------------------------------|---------|-------|
-| `googleapis.com/auth/spreadsheets`     | Interaction with `Spreadsheet` files | Creation of spreadsheet files: users and ride offers |
-| `googleapis.com/auth/forms`            | Interaction with `Form` files | Creating the form for offering a ride |
-| `googleapis.com/auth/drive.file`       | Creation of new files and interaction with them | Uninstall option |
-| `googleapis.com/auth/userinfo.email`   | View the primary address of your Google account | Allows recipients to reply to the Sunday email (to unsubscribe) to the address `YOUR_EMAIL+carpooling@gmail.com` |
-| `googleapis.com/auth/script.scriptapp` | Code execution in your absence | Used to automatically send the Sunday email |
-| `googleapis.com/auth/script.send_mail` | Sending emails on your behalf | Used to send the Sunday email |
-| `mail.google.com`                      | Access to Gmail | Used to check if unsubscribe replies have been received at the mentioned address (only for the "auto" unsubscribe mode) |  
+If something breaks, good luck <3 *"The fragile digital fabric holding this solution together is torn. Destroy it and rebuild it."* Save the data from the users file, then uninstall the solution. You’ll need to open the `src/uninstall.gs` file and run `▷` the `uninstall` function. Then, restart the installation process from step 2.  
 
 <br/>
 
 ## Development
 
-Clone this repo and make it your own. There’s no one-size-fits-all solution. Different communities, different needs.
-
-Open the project in your preferred editor and install the packages (`npm install`). This will provide suggestions while coding. Use [clasp](https://github.com/google/clasp)!
-
-If you make a change that benefits your community and might help others, feel free to open a PR, but keep these things in mind:
-1. The UX must remain simple and minimalistic
-2. If it’s too tailored to your community and wouldn’t help others, an extension might be more useful
-
-An extension would be an independent script and should reuse the created files. However, be careful because it will require a more powerful authorization scope: `https://www.googleapis.com/auth/drive`. Most likely, users will need to retrieve the spreadsheet IDs (`USERS_SSID` & `RIDE_OFFERS_SSID`) from the current script’s properties and add them to the extension.  
-
-If you want to make a quick contribution, add support for your native language if it’s not already present (`src/constants.js`).  
+All technicals details can be found [here](./technical/TECHNICAL.md).
 
 <br/>
 
