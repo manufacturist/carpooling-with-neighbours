@@ -24,7 +24,7 @@ Este o soluție benefică pentru:
 
 ## Cum funcționează?
 
-Un vecin poate oferi o cursă completând un formular. În fiecare duminică, un email este trimis în jurul orei 18:00 cu o listă de curse disponibile pentru săptămâna următoare tuturor celor interesați. De asemenea, vecinii pot verifica oricând cele mai recente drumuri valabile pe o pagină web.
+Un vecin poate oferi o cursă completând un formular. În fiecare duminică, un email este trimis în jurul orei 18:00 cu o listă de curse disponibile pentru săptămâna următoare tuturor celor interesați. Vecinii pot verifica oricând cursele valabile pe o pagină web.
 
 ```
 Bună Veta,
@@ -38,10 +38,6 @@ Plecare: Băilești | Locuri: 3
 🚘 Duc polistirenul la colectat | Sâmbătă, 23.08, 12:00 AM
 Șofer: Dorel (ap. 42, 0712345678)
 Plecare: În fața blocului | Locuri: 4
-
-🚘 IKEA | Duminică, 24.08, 10:00 AM
-Șofer: Bunica (0712345678)
-Locuri: 2
 
 Dacă o cursă ți se potrivește, contactează șoferul pentru a rezerva un loc.
 
@@ -80,7 +76,7 @@ Pentru a utiliza această soluție, cineva din comunitate / cartier trebuie să 
 
 ## Instalare
 
-Pentru început, va trebui să decizi dacă vrei să folosești un cont personal de Google sau un cont secundar. De știut că se vor trimite email-uri cu adresa ta de email, folosind adresare cu plus (`EMAILUL_TĂU+carpooling@gmail.com`).
+Pentru început, va trebui să decizi dacă vrei să folosești un cont personal de Google sau un cont secundar. De știut că se vor trimite email-uri cu adresa de email aleasă, utilizând adresare cu plus (`emailul-tău+carpooling@gmail.com`).
 
 Pentru a instala:
 * Cel mai simplu mod este să copiezi proiectul public din [Google Apps Script](https://script.google.com/home), în contul tău
@@ -88,15 +84,15 @@ Pentru a instala:
 
 Acuma, pe pagina proiectului tău:
 
-1. Apasă pe simbolul pentru setările proiectului '⚙️' din stânga paginii și alege fusul orar dorit. România este pe GMT+2 (Europe/Bucharest)
+1. Apasă pe simbolul pentru setările proiectului ⚙️ din stânga paginii și alege fusul orar dorit. România este pe GMT+2 (Europe/Bucharest)
 
-2. Tot în stânga paginii ai simbolul pentru editor `< >`. Apasă pe el și deschide fișierul `src/main.gs`
+2. Tot în stânga paginii ai simbolul pentru editor `< >`. Apasă pe el și deschide fișierul `src/_main.gs`
 
-3. În fișierul acesta, va trebui să îți alegi limba dorită (cea vorbita de majoritatea destinatarilor) prin modificarea rândului 2, iar apoi salvează modificarea prin click pe 💾, sau Ctrl + S sau CMD + S. Variante posibile: <br/>
+3. În fișierul acesta, va trebui să îți alegi limba dorită prin modificarea rândului 2, iar apoi salvează modificarea prin click pe 💾, sau Ctrl + S sau CMD + S. Variante posibile: <br/>
    `ro` - Română <br/>
    `en` - Engleză
 
-4. Tot în acest fișier, trebuie să rulăm funcția `main` prin apăsarea butonului `▷`. Aceasta va crea:
+4. Tot în acest fișier, trebuie să rulăm funcția `main` prin apăsarea butonului ▷. Aceasta va crea:
    * Fișierul de utilizatori (Sheet)
    * Formularul pentru a oferi o cursă (Form)
    * Fișierul cu ofertele de curse (Sheet), unde vor fi salvate răspunsurile formularului

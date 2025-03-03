@@ -24,7 +24,7 @@ This is a beneficial solution for:
 
 ## How it works
 
-A neighbour offers a ride by filling out a form. Every Sunday, an email is sent after 18:00 with a list of available rides for the upcoming week to all those interested. Neighbours can also check the latest rides anytime on a webpage.
+A neighbour offers a ride by filling out a form. Every Sunday, an email is sent after 18:00 with a list of available rides for the upcoming week to all those interested. Neighbours can also check the latest available rides on a webpage.
 
 ```
 Hey Sally Carrera,
@@ -38,10 +38,6 @@ Meet: Mater's Garage (Radiator Springs) | Seats: 3
 🚘 Brunch @ Central Perk Coffeehouse | Saturday, Aug 23, 12:00 AM
 Driver: Joey Tribianni (Apt. 4, +0123456789)
 Meet: Downstairs | Seats: 4
-
-🚘 IKEA shopping | Sunday, Aug 24, 10:00 AM
-Driver: Ingvar Kamprad (+0123456789)
-Seats: 2
 
 If any of them work for you, just reach out to the driver to reserve a spot.
 
@@ -80,7 +76,7 @@ To use this solution, someone in the community / neighbourhood must fulfill the 
 
 ## Setup
 
-To get started, you’ll need to decide whether to use a personal Google account or a secondary account. Note that emails will be sent using your email address, with a plus address (`YOUR_EMAIL+carpooling@gmail.com`).
+To get started, you’ll need to decide whether to use a personal Google account or a secondary one. Note that emails will be sent using your email address, using plus addressing (`your-email+carpooling@gmail.com`).
 
 To install:
 * The easiest way is to copy the public project from [Google Apps Script](https://script.google.com/home) into your account
@@ -88,15 +84,15 @@ To install:
 
 Now, on your project page:  
 
-1. Click the project settings icon '⚙️' on the left side of the page and choose your desired time zone
+1. Click the project settings icon ⚙️ on the left side of the page and pick your time zone
 
-2. Also on the left, click the code editor symbol `< >` and open the `src/main.gs` file.
+2. Also on the left, click the code editor symbol `< >` and open the `src/_main.gs` file.
 
-3. In this file, choose your desired language (spoken by most recipients) by modifying line 2, then save the change by clicking 💾, or using Ctrl + S or CMD + S. Possible options: <br/>
+3. In this file, choose the language by modifying the second line of code, then save the change by clicking 💾, or using Ctrl + S or CMD + S. Possible options are: <br/>
    `en` - English <br/>
    `ro` - Romanian
 
-4. Still in this file, run the `main` function by pressing the `▷` button. This will create:  
+4. Run the `main` function by pressing the ▷ button. This will create:  
    * The users file (Spreadsheet)  
    * The form for offering a ride
    * The ride offers file (Spreadsheet), where the form responses will be saved  
