@@ -2,7 +2,7 @@
 
 [English](./README.md) | [Română](./README.ro.md)
 
-# Carpooling with Neighbours
+# 🚘 Carpooling with Neighbours
 
 A zero-cost, minimal interaction solution for carpooling with your neighbours, using Google Apps Script.
 

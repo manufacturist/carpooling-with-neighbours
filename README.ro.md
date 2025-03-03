@@ -2,7 +2,7 @@
 
 [English](./README.md) | [Română](./README.ro.md)
 
-# Drumuri cu Vecinii
+# 🚘 Drumuri cu Vecinii
 
 O soluție cu zero costuri și interacțiune minimă pentru a face drumuri cu vecinii (carpooling), folosind Google Apps Script.
 
