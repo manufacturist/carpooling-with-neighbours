@@ -79,7 +79,7 @@ To use this solution, someone in the community / neighbourhood must fulfill the 
 To get started, you’ll need to decide whether to use a personal Google account or a secondary one. Note that emails will be sent using your email address, using plus addressing (`your-email+carpooling@gmail.com`).
 
 To install:
-* The easiest way is to copy the public project from [Google Apps Script](https://script.google.com/home) into your account
+* The easiest way is to copy the public project from [Google Apps Script](https://script.google.com/home/projects/11ADPu5NSESfauVR8TfyNeUxq9aPh8acRuLuhXH-_sFCekqEsi3EzLcFg) into your account
 * Alternatively, if you’re tech-savvy, you can use [clasp](https://github.com/google/clasp) on the downloaded project
 
 Now, on your project page:  

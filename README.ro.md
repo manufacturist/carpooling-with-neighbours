@@ -79,7 +79,7 @@ Pentru a utiliza această soluție, cineva din comunitate / cartier trebuie să 
 Pentru început, va trebui să decizi dacă vrei să folosești un cont personal de Google sau un cont secundar. De știut că se vor trimite email-uri cu adresa de email aleasă, utilizând adresare cu plus (`emailul-tău+carpooling@gmail.com`).
 
 Pentru a instala:
-* Cel mai simplu mod este să copiezi proiectul public din [Google Apps Script](https://script.google.com/home), în contul tău
+* Cel mai simplu mod este să copiezi proiectul public din [Google Apps Script](https://script.google.com/home/projects/11ADPu5NSESfauVR8TfyNeUxq9aPh8acRuLuhXH-_sFCekqEsi3EzLcFg), în contul tău
 * Alternativ, dacă ești o persoană tehnică, poți folosi [clasp](https://github.com/google/clasp) pe proiectul descărcat
 
 Acuma, pe pagina proiectului tău:
